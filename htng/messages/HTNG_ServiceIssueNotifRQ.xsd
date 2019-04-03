@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by Doug Rice (HTNG) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.001" id="HTNG2014B">
+	<xs:include schemaLocation="../schemas/HTNG_CommonTypes.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_CommonTypes.xsd"/>
+	<xs:annotation>
+		<xs:documentation>message alerts subscribing systems of the arrival of new guest(s) that will be occupying a room.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="HTNG_ServiceIssueNotifRQ">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="HTNG_RequestBaseType">
+					<xs:sequence>
+						<xs:element name="ServiceIssue" type="HTNG_ServiceIssueType"/>
+						<xs:element name="TPA_Extensions" type="ota:TPA_ExtensionsType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A place holder in the schema to allow for additional elements and attributes to be included if required, per Trading Partner Agreement (TPA).</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+
+

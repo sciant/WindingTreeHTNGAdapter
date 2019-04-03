@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.001" id="HTNG2014B">
+	<xs:include schemaLocation="../schemas/HTNG_CommonTypes.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_CommonTypes.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_SimpleTypes.xsd"/>
+	<xs:annotation>
+		<xs:documentation xml:lang="en">All Schema files in the OTA specification are made available according to the terms defined by the OTA License Agreement at http://www.opentravel.org/Specifications/Default.aspx</xs:documentation>
+	</xs:annotation>
+	<xs:element name="HTNG_PaymentCardRQ">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">The HTNG_PaymentCardRQ is the message that ...</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POS" type="ota:POS_Type" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">POS provides a mechanisim to indicate the source of the message.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="UniqueID" type="ota:UniqueID_Type" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">The unique identifier element allows the trading partners to uniquely identify each ..., (i.e.  the entire message) for transaction tracability.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ProxyIDs">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Container for Data Proxy elements.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ProxyID" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">An individual Data Proxy Identifier.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="ota:TPA_Extensions" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="ota:OTA_PayloadStdAttributes">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">This element defines standard attributes that appear on the root element for all OTA payloads.</xs:documentation>
+				</xs:annotation>
+			</xs:attributeGroup>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+
+
+
+

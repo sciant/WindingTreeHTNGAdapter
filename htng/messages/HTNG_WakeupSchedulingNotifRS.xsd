@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.000" id="HTNG2014B">
+	<xs:include schemaLocation="../schemas/HTNG_SimpleTypes.xsd"/>
+	<xs:include schemaLocation="../schemas/HTNG_CommonTypes.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_CommonTypes.xsd"/>
+	<xs:annotation>
+		<xs:documentation xml:lang="en">Used to convey the outcome of processing the corresponding request</xs:documentation>
+	</xs:annotation>
+	<xs:element name="HTNG_WakeupSchedulingNotifRS">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:annotation>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+				<xs:extension base="HTNG_ResponseBaseType">
+					<xs:sequence>
+						<xs:element name="WakeupID" type="ota:UniqueID_Type" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">The unique identifier element allows the trading partners to uniquely identify each scheduled wakeup event.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+
+
+
+

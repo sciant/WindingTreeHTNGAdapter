@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by Doug Rice (HTNG) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.002" id="HTNG2014B">
+  <xs:include schemaLocation="HTNG_SimpleTypes.xsd"/>
+  <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelReservation.xsd"/>
+  <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_CommonTypes.xsd"/>
+  <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_SimpleTypes.xsd"/>
+  <xs:complexType name="HTNG_AuthorizationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Information with which a traveller's identification is verified and/or charges are authorized.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CreditCardAuthorization" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Specifies credit card information about the customer seeking authorization.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CreditCard" type="HTNG_PaymentCardType">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Specifies the credit card information for which authorization is required. </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ID" type="ota:UniqueID_Type" minOccurs="0" maxOccurs="5">
+              <xs:annotation>
+                <xs:documentation>Identification of an authorization party (e.g., merchant, acquirer).</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+          <xs:attributeGroup ref="ota:CurrencyAmountGroup">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Specifies the amount of money for which the the requester is seeking authorization.</xs:documentation>
+            </xs:annotation>
+          </xs:attributeGroup>
+          <xs:attribute name="SourceType" use="optional">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Information describing the point of sale.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:NMTOKEN">
+                <xs:enumeration value="NormalTransaction">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">Agent representation (for example, a ticket office).</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="MailOrPhoneOrder">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">The source of the purchase request is a mail or phone order.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="UnattendedTerminal">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">The source of the purchase request is an unattended terminal such as a kiosk or ATM.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="MerchantIsSuspicious">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">Indicates that the merchant requesting the credit seems to be suspicious or fraudulent.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="eCommerceSecuredTransaction">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">Indicates an e-comerce transaction provided over a secure channel. For example, SSL (secure sockets layer).</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="eCommerceUnsecuredTransaction">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">Indicates an e-comerce transaction provided over an unsecured channel. For example HTTP.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="InFlightAirPhone">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">The purchase request is made from an in flight air phone.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="CID_NotLegible">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">The customer identification number cannot be read.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="CID_NotOnCard">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">There is no customer identification number on the card.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="ExtendedPaymentInd" type="xs:boolean" use="optional">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">If true, the requester would like to apply extended payment conditions to this authorization.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="ExtendedPaymentQuantity" type="ota:Numeric1to999" use="optional">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The number of equal amount, partial payments for the extended payment.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="ExtendedPaymentFrequency" type="ota:TimeUnitType" use="optional">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The frequency of extended payment installments.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="AuthorizationCode" use="optional">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">This is the approval code received on the original authorization request. Only used in the case where the requested transaction is to reverse the authorization. </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value="[A-Za-z0-9]{1,12}"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="ReversalIndicator" type="xs:boolean" use="optional">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">If true, indicates a request to reverse a credit authorization.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="CardPresentInd" type="xs:boolean" use="optional">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">When true, the customer has actually presented the credit card.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="E_CommerceCode" type="ota:AlphaNumericStringLength1to8" use="optional">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The electronic commerce indicator required for some credit card authorizations, such as the Verified by Visa Process.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="AuthTransactionID" type="ota:StringLength1to32" use="optional">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The authentication transaction identifier required for some credit card authorizations, such as the Verified by Visa Process.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="AuthVerificationValue" type="ota:StringLength1to32" use="optional">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The cardholder authentication verfication value required for some credit card authorization, such as the Verified by Visa Process.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="TransactionType" type="ota:StringLength1to16" use="required">
+            <xs:annotation>
+              <xs:documentation xml:lang="en"/>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="SaleCode" type="ota:StringLength1to16" use="required">
+            <xs:annotation>
+              <xs:documentation xml:lang="en"/>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BookingReferenceID" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The booking or confirmation number for which charges are being authorized.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="ota:UniqueID_Type">
+              <xs:attribute name="IgnoreReservationInd" type="xs:boolean" use="optional">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">When true, the PNR should not be updated with the authorization information returned.</xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="PrincipalCompanyCode" type="ota:StringLength1to16" use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">The code associated with the company (e.g., two to three character airline designator) submitting a request to an authorization vendor system.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="RefNumber" type="ota:StringLength1to8" use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">A unique identifier for an authorization request. It may be used to link a response to a corresponding request item.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="HTNG_BasicOrSuiteRoomType">
+    <xs:complexContent>
+      <xs:annotation>
+        <xs:documentation xml:lang="en">This room type extends from ComponentRoom (non suite room) and adds ability for suites/component rooms</xs:documentation>
+      </xs:annotation>
+      <xs:extension base="ota:RoomTypeType">
+        <xs:sequence>
+          <xs:element name="ComponentRooms" type="HTNG_ComponentRoomsType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">This is a collection of component rooms (sub-units for a suite)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="HTNG_CollectionOfUniqueIDs">
+    <xs:sequence>
+      <xs:element name="UniqueID" type="ota:UniqueID_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HTNG_ComponentRoomsType">
+    <xs:sequence>
+      <xs:element name="ComponentRoom" type="HTNG_ComponentRoomType" minOccurs="2" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">This is a component room in part of a suite.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HTNG_ComponentRoomType">
+    <xs:sequence>
+      <xs:element name="RoomType" minOccurs="0">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="ota:RoomTypeType">
+              <xs:attribute name="Building" type="xs:string"/>
+              <xs:attribute name="Wing" type="xs:string"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Devices" type="HTNG_DeviceHealthsType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A collection of devices contained in a room.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TelephoneExtensions" type="HTNG_TelephoneExtensionType" minOccurs="0"/>
+      <xs:element name="HKStatus" type="HTNG_HousekeepingStatusType" minOccurs="0"/>
+      <xs:element name="TPA_Extensions" type="ota:TPA_ExtensionsType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>A place holder in the schema to allow for additional elements and attributes to be included if required, per Trading Partner Agreement (TPA).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="RoomID" type="ota:StringLength1to16" use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">A string value representing the unique identification of a room.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="HTNG_DevicesType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Device" type="HTNG_DeviceType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HTNG_DeviceActionType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Parameters" type="HTNG_ParametersType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="Type" type="HTNG_DeviceActionTypeType" use="required"/>
+    <xs:attribute name="Operation" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="HTNG_DeviceType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="EndpointAddress" type="xs:anyURI" minOccurs="0"/>
+      <xs:element name="Manufacturer" type="ota:UniqueID_Type" minOccurs="0"/>
+      <xs:element name="DeviceLocation" type="HTNG_RoomElementType" minOccurs="0"/>
+      <xs:element name="DeviceProfile" type="HTNG_DeviceProfileType" minOccurs="0"/>
+      <xs:element name="Action" type="HTNG_DeviceActionType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:string" use="optional"/>
+    <xs:attribute name="FriendlyName" type="xs:string" use="optional"/>
+    <xs:attribute name="Description" type="xs:string" use="optional"/>
+    <xs:attribute name="Class" type="xs:string" use="optional"/>
+    <xs:attribute name="Type" type="xs:string" use="optional"/>
+    <xs:attribute name="ModelID" type="xs:string" use="optional"/>
+    <xs:attribute name="ModelName" type="xs:string" use="optional"/>
+    <xs:attribute name="SerialNumber" type="xs:string" use="optional"/>
+    <xs:attribute name="MAC_Address" type="xs:string" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="HTNG_DeviceHealthsType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Device" type="HTNG_DeviceHealthType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HTNG_DeviceHealthType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CurrentHealthStatus" type="HTNG_HealthStatusType" minOccurs="0"/>
+      <xs:element name="PriorHealthStatus" type="HTNG_HealthStatusType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:string" use="optional"/>
+    <xs:attribute name="FriendlyName" type="xs:string" use="optional"/>
+    <xs:attribute name="Description" type="xs:string" use="optional"/>
+    <xs:attribute name="Class" type="xs:string" use="optional"/>
+    <xs:attribute name="Type" type="xs:string" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="HTNG_DeviceProfileType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Capabilities" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Capability" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="InboundParameters" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="InboundParameter" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="KeyValueItems" type="HTNG_KeyValueItemsType" minOccurs="0"/>
+                            </xs:sequence>
+                            <xs:attribute name="Property" type="xs:string" use="required"/>
+                            <xs:attribute name="DataType" type="xs:string" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="OutboundParameters" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="OutboundParameter" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="KeyValueItems" type="HTNG_KeyValueItemsType" minOccurs="0"/>
+                            </xs:sequence>
+                            <xs:attribute name="Property" type="xs:string" use="required"/>
+                            <xs:attribute name="DataType" type="xs:string" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="Operation" type="xs:string" use="required"/>
+                <xs:attribute name="Type" type="HTNG_DeviceMessageType" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:string" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="HTNG_EventFiltersType">
+    <xs:sequence>
+      <xs:element name="Filter" type="xs:string" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en"/>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HTNG_ExtendedPrice">
+    <xs:complexContent>
+      <xs:extension base="ota:TotalType">
+        <xs:attributeGroup ref="ota:QuantityGroup"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="HTNG_HealthStatusType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:attribute name="Value" type="xs:string" use="required"/>
+    <xs:attribute name="OldValue" type="xs:string" use="optional"/>
+    <xs:attribute name="Reason" type="xs:string" use="optional"/>
+    <!--		<xs:simpleContent>
+			<xs:extension base="xs:string"> -->
+    <!--			</xs:extension>
+		</xs:simpleContent> -->
+  </xs:complexType>
+  <xs:complexType name="HTNG_HotelKeyEncodeType">
+    <xs:sequence>
+      <xs:element name="Encoder" type="ota:UniqueID_Type" minOccurs="0"/>
+      <xs:element name="MagneticData" type="HTNG_MagneticStripeType" minOccurs="0"/>
+      <xs:element name="SmartCardData" type="HTNG_SmartCardDataType" minOccurs="0"/>
+      <xs:element name="TimeSpan" type="ota:DateTimeSpanType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Date and time of check-in and check-out.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AccessAreas" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:sequence>
+              <xs:element name="AccessArea" type="ota:UniqueID_Type" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RoomType" type="HTNG_BasicOrSuiteRoomType"/>
+    </xs:sequence>
+    <xs:attribute name="ReturnTrackData" type="xs:boolean" use="required"/>
+    <xs:attribute name="Quantity" type="ota:Numeric1to999" use="optional"/>
+    <xs:attribute name="KeyType" type="ota:ActionType" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="HTNG_KeyValueItemsType">
+    <xs:annotation>
+      <xs:documentation>Implied AND...</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="KeyValueItem" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="Key" type="xs:string" use="required"/>
+          <xs:attribute name="Operator" type="HTNG_ComparisonOperatorType" use="optional" default="Equals"/>
+          <xs:attribute name="Value" type="xs:string" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HTNG_MagneticStripeType">
+    <xs:simpleContent>
+      <xs:extension base="HTNG_SimpleEncryptedType">
+        <xs:attribute name="Track1" use="optional">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">The binary magnetic stripe data for track 1.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:base64Binary">
+              <xs:minLength value="0"/>
+              <xs:maxLength value="108"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="Track2" use="optional">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">The binary magnetic stripe data for track 2.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:base64Binary">
+              <xs:minLength value="0"/>
+              <xs:maxLength value="56"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="Track3" use="optional">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">The binary magnetic stripe data for track 3.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:base64Binary">
+              <xs:minLength value="0"/>
+              <xs:maxLength value="144"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="HTNG_ParametersType">
+    <xs:sequence>
+      <xs:element name="Parameter" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="Property" type="xs:string" use="required"/>
+          <xs:attribute name="Value" type="xs:string" use="required"/>
+          <xs:attribute name="Key" type="xs:string" use="optional"/>
+          <xs:attribute name="PreviousValue" type="xs:string" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HTNG_PaymentCardType">
+    <xs:complexContent>
+      <xs:extension base="ota:PaymentCardType">
+        <xs:sequence>
+          <xs:element name="EMVData" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="CardNumberIsProxy" type="xs:boolean"/>
+        <xs:attribute name="IsEMV" type="xs:boolean"/>
+        <xs:attribute name="IssueNumber" type="ota:Numeric1to3" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="HTNG_ProfileMessageSummaryType">
+    <xs:attribute name="Image" type="xs:int" use="optional" default="0"/>
+    <xs:attribute name="Text" type="xs:int" use="optional" default="0"/>
+    <xs:attribute name="Video" type="xs:int" use="optional" default="0"/>
+    <xs:attribute name="Other" type="xs:int" use="optional" default="0"/>
+  </xs:complexType>
+  <xs:complexType name="HTNG_RequestBaseType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A convenience type containing the standard OpenTravel OTA_PayloadStdAttributes used in OpenTravel response messages.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="POS" type="ota:POS_Type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">POS provides a mechanisim to indicate the source of the message.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="UniqueID" type="ota:UniqueID_Type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The unique identifier element allows the trading partners to uniquely identify each ..., (i.e.  the entire message) for transaction tracability.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PropertyInfo">
+        <xs:complexType>
+          <xs:attributeGroup ref="ota:HotelReferenceGroup"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attributeGroup ref="ota:OTA_PayloadStdAttributes">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">This element defines standard attributes that appear on the root element for all OTA payloads.</xs:documentation>
+      </xs:annotation>
+    </xs:attributeGroup>
+  </xs:complexType>
+  <xs:complexType name="HTNG_RequestedComponentsType">
+    <xs:sequence>
+      <xs:element name="RequestedComponent" type="HTNG_RequestedComponentType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HTNG_RequestedComponentType">
+    <xs:attribute name="Name" type="HTNG_QueryResultListType" use="required"/>
+    <xs:attribute name="Extension" type="xs:string" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="HTNG_ResponseBaseType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A convenience type containing the standard OpenTravel OTA_PayloadStdAttributes, SuccessType, ErrorsType, and WarningsType used in OpenTravel response messages.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:sequence>
+        <xs:element name="Success" type="ota:SuccessType"/>
+        <xs:element name="Warnings" type="ota:WarningsType" minOccurs="0"/>
+      </xs:sequence>
+      <xs:element name="Errors" type="ota:ErrorsType"/>
+    </xs:choice>
+    <xs:attributeGroup ref="ota:OTA_PayloadStdAttributes">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">This element defines standard attributes that appear on the root element for all OTA payloads.</xs:documentation>
+      </xs:annotation>
+    </xs:attributeGroup>
+  </xs:complexType>
+  <xs:complexType name="HTNG_RevenueDetailsType">
+    <xs:sequence>
+      <xs:element name="RevenueDetail" type="HTNG_RevenueDetailType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HTNG_RevenueDetailType">
+    <xs:complexContent>
+      <xs:extension base="ota:RevenueDetailType">
+        <xs:sequence>
+          <xs:element name="UnitPrice" type="ota:TotalType" minOccurs="0"/>
+          <xs:element name="ExtendedPrice" type="HTNG_ExtendedPrice" minOccurs="0"/>
+          <xs:element name="RevenueDetailItems" type="HTNG_RevenueDetailItemsType" minOccurs="0"/>
+          <xs:element name="Account" type="ota:UniqueID_Type" minOccurs="0"/>
+          <xs:element name="Other_PaymentForm" type="ota:PaymentFormType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="SubTypeID" type="xs:string"/>
+        <xs:attribute name="GuestViewable" type="xs:boolean" default="false"/>
+        <xs:attribute name="TransactionTime" type="xs:time"/>
+        <xs:attribute name="RevenueCategoryCode" type="ota:OTA_CodeType" use="optional">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Describes the type of revenue generated. Refer to OpenTravel Code List Revenue Category Code (RCC).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="HTNG_RevenueDetailItemsType">
+    <xs:sequence>
+      <xs:element name="RevenueDetailItem" type="HTNG_RevenueDetailItemType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HTNG_RevenueDetailItemType">
+    <xs:complexContent>
+      <xs:extension base="ota:RevenueDetailType">
+        <xs:sequence>
+          <xs:element name="UnitPrice" type="ota:TotalType" minOccurs="0"/>
+          <xs:element name="ExtendedPrice" type="HTNG_ExtendedPrice" minOccurs="0"/>
+          <xs:element name="RevenueDetailItemDetails" type="HTNG_RevenueDetailItemDetailsType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="GuestViewable" type="xs:boolean" default="false"/>
+        <xs:attribute name="RevenueCategoryCode" type="ota:OTA_CodeType" use="optional">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Describes the type of revenue generated. Refer to OpenTravel Code List Revenue Category Code (RCC).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="HTNG_RevenueDetailItemDetailsType">
+    <xs:sequence>
+      <xs:element name="RevenueDetailItemDetail" type="HTNG_RevenueDetailItemDetailType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HTNG_RevenueDetailItemDetailType">
+    <xs:complexContent>
+      <xs:extension base="ota:RevenueDetailType">
+        <xs:sequence>
+          <xs:element name="UnitPrice" type="ota:TotalType" minOccurs="0"/>
+          <xs:element name="ExtendedPrice" type="HTNG_ExtendedPrice" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="GuestViewable" type="xs:boolean" default="false"/>
+        <xs:attribute name="RevenueCategoryCode" type="ota:OTA_CodeType" use="optional">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Describes the type of revenue generated. Refer to OpenTravel Code List Revenue Category Code (RCC).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="HTNG_RoomElementType">
+    <xs:complexContent>
+      <xs:annotation>
+        <xs:documentation xml:lang="en">This room type extends from ComponentRoom (non suite room) and adds ability for suites/component rooms</xs:documentation>
+      </xs:annotation>
+      <xs:extension base="HTNG_ComponentRoomType">
+        <xs:sequence>
+          <xs:element name="ComponentRooms" type="HTNG_ComponentRoomsType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">This is a collection of component rooms (sub-units for a suite)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="HTNG_ServiceIssueType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="UniqueID" type="ota:UniqueID_Type" maxOccurs="5"/>
+      <xs:element name="PropertyInfo">
+        <xs:complexType>
+          <xs:attributeGroup ref="ota:HotelReferenceGroup"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Room" type="HTNG_BasicOrSuiteRoomType"/>
+      <xs:element name="Comments" type="ota:CommentType"/>
+      <xs:element name="Actions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Action">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="UniqueID" type="ota:UniqueID_Type" maxOccurs="5"/>
+                  <xs:element name="Comments" type="ota:CommentType"/>
+                  <xs:element name="Compensation" type="ota:PaymentFormType"/>
+                  <xs:element name="Cost" type="ota:AmountType"/>
+                </xs:sequence>
+                <xs:attribute name="Code" type="xs:string" use="optional"/>
+                <xs:attribute name="CreateDateTime" type="xs:dateTime" use="optional"/>
+                <xs:attribute name="CreatorID" type="xs:string" use="optional"/>
+                <xs:attribute name="LastModifyDateTime" type="xs:dateTime" use="optional"/>
+                <xs:attribute name="LastModifierID" type="xs:string" use="optional"/>
+                <xs:attribute name="ActionBy" type="xs:string" use="optional"/>
+                <xs:attributeGroup ref="ota:DateTimeSpanGroup"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="ResolutionID" type="xs:string"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Code" type="xs:string" use="optional"/>
+    <xs:attribute name="IssueOccurrance" type="xs:dateTime" use="optional"/>
+    <xs:attribute name="CreateDateTime" type="xs:dateTime" use="optional"/>
+    <xs:attribute name="CreatorID" type="xs:string" use="optional"/>
+    <xs:attribute name="PriorityCode" type="xs:string" use="optional"/>
+    <xs:attribute name="ReportedBy" type="xs:string" use="optional"/>
+    <xs:attribute name="LastModifyDateTime" type="xs:dateTime" use="optional"/>
+    <xs:attribute name="LastModifierID" type="xs:string" use="optional"/>
+    <xs:attribute name="Status" type="xs:string" use="optional"/>
+    <xs:attribute name="AbsoluteDeadline" type="xs:dateTime" use="optional"/>
+    <xs:attribute name="SourceCode" type="xs:string" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="HTNG_SmartCardDataType">
+    <xs:sequence>
+      <xs:element name="ReadOnlyData" type="HTNG_SimpleEncryptedType"/>
+    </xs:sequence>
+    <xs:attribute name="CardID" type="ota:StringLength1to64"/>
+    <xs:attribute name="CardType" type="ota:StringLength1to16"/>
+  </xs:complexType>
+  <xs:complexType name="HTNG_TelephoneExtensionType">
+    <xs:sequence>
+      <xs:element name="TelephoneExtention" type="ota:StringLength1to8" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+<!--
+<xs:complexType name="HTNG_ExchangeRatesType">
+	<xs:sequence>
+		<xs:element name="ExchangeRate" maxOccurs="99">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">Indicates a rate of exchange used in fare currency conversions</xs:documentation>
+			</xs:annotation>
+			<xs:complexType>
+				<xs:attributeGroup ref="ota:ExchangeRateGroup">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Group of attributes used to express an exchange rate between 2 currencies</xs:documentation>
+					</xs:annotation>
+				</xs:attributeGroup>
+			</xs:complexType>
+		</xs:element>
+	</xs:sequence>
+</xs:complexType>
+-->

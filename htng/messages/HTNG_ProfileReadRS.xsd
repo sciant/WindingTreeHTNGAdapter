@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.001" id="HTNG2014B">
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_Profile.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelReservation.xsd"/>
+	<xs:annotation>
+		<xs:documentation xml:lang="en">All Schema files in the OpenTravel Alliance specification are made available according to the terms defined by the OpenTravel License Agreement at http://www.opentravel.org/Specifications/Default.aspx.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="HTNG_ProfileReadRS">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Returns a single or multiple customer profile(s) in response to a ReadRQ request of Type=Profile.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element name="Success" type="ota:SuccessType">
+						<xs:annotation>
+							<xs:documentation xml:lang="en-us">Standard way to indicate successful processing of an OpenTravel message.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Warnings" type="ota:WarningsType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="en-us">A successfully processed of an OpenTravel message, but one in which warnings are generated.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="UniqueID" type="ota:UniqueID_Type" minOccurs="0" maxOccurs="99">
+						<xs:annotation>
+							<xs:documentation xml:lang="en-us">An identifier used to uniquely reference an object in a system (e.g. an airline reservation reference, customer profile reference, booking confirmation number, or a reference to a previous availability quote).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Profiles" type="ota:ProfilesType">
+						<xs:annotation>
+							<xs:documentation xml:lang="en-us">Container element for a  collect of profiles.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="StayInfos" type="ota:StayInfosType">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">A collection of Stay Information.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:element name="Errors" type="ota:ErrorsType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en-us">Standard way to indicate that an error occurred during the processing of an OpenTravel message.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:attributeGroup ref="ota:OTA_PayloadStdAttributes"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+
+
+

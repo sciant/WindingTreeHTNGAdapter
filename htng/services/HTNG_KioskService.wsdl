@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://htng.org/2014B" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="HTNG_KioskService" targetNamespace="http://htng.org/2014B">
+	<wsdl:import namespace="http://htng.org/2014B" location="wsdls/ARIAndReservationPushBinding.wsdl"/>
+	<wsdl:import namespace="http://htng.org/2014B" location="wsdls/FolioManagementBinding.wsdl"/>
+	<wsdl:import namespace="http://htng.org/2014B" location="wsdls/GuestCommunicationsBinding.wsdl"/>
+	<wsdl:import namespace="http://htng.org/2014B" location="wsdls/ReservationManagementBinding.wsdl"/>
+	<wsdl:import namespace="http://htng.org/2014B" location="wsdls/ReservationStayStatusBinding.wsdl"/>
+	<wsdl:import namespace="http://htng.org/2014B" location="wsdls/SeamlessShopAndBookBinding.wsdl"/>
+	<wsdl:import namespace="http://htng.org/2014B" location="wsdls/SecureAreaAccessBinding.wsdl"/>
+	<wsdl:service name="HTNG_KioskService">
+		<wsdl:port name="ARIAndReservationPush" binding="tns:ARIAndReservationPushBinding">
+			<soap:address location="http://tempuri.org"/>
+			<!-- UPDATE LOCATION ATTRIBUTE TO YOUR LOCAL SERVICE LOCATION-->
+		</wsdl:port>
+		<wsdl:port name="FolioManagement" binding="tns:FolioManagementBinding">
+			<soap:address location="http://tempuri.org"/>
+			<!-- UPDATE LOCATION ATTRIBUTE TO YOUR LOCAL SERVICE LOCATION-->
+		</wsdl:port>
+		<wsdl:port name="GuestCommunications" binding="tns:GuestCommunicationsBinding">
+			<soap:address location="http://tempuri.org"/>
+			<!-- UPDATE LOCATION ATTRIBUTE TO YOUR LOCAL SERVICE LOCATION-->
+		</wsdl:port>
+		<wsdl:port name="ReservationManagement" binding="tns:ReservationManagementBinding">
+			<soap:address location="http://tempuri.org"/>
+			<!-- Deprecation warning.  The ReservationManagement service will be disappearing in a future release -->
+			<!-- To retreive reservations, use the SeamlessShopAndBook port -->
+			<!-- To modify reservations, use the ARIAndReservationPush port -->
+			<!-- UPDATE LOCATION ATTRIBUTE TO YOUR LOCAL SERVICE LOCATION-->
+		</wsdl:port>
+		<wsdl:port name="ReservationStayStatus" binding="tns:ReservationStayStatusBinding">
+			<soap:address location="http://tempuri.org"/>
+			<!-- UPDATE LOCATION ATTRIBUTE TO YOUR LOCAL SERVICE LOCATION-->
+		</wsdl:port>
+		<wsdl:port name="SeamlessShopAndBook" binding="tns:SeamlessShopAndBookBinding">
+			<soap:address location="http://tempuri.org"/>
+			<!-- UPDATE LOCATION ATTRIBUTE TO YOUR LOCAL SERVICE LOCATION-->
+		</wsdl:port>
+		<wsdl:port name="SecureAreaAccess" binding="tns:SecureAreaAccessBinding">
+			<soap:address location="http://tempuri.org"/>
+			<!-- UPDATE LOCATION ATTRIBUTE TO YOUR LOCAL SERVICE LOCATION-->
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
+
+
+

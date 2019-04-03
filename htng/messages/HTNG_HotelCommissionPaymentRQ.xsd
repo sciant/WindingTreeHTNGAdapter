@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.001" id="HTNG2014B">
+	<xs:include schemaLocation="../schemas/HTNG_CommonTypes.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_CommonTypes.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelCommonTypes.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelReservation.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_PkgCommonTypes.xsd"/>
+	<xs:element name="HTNG_HotelCommissionPaymentRQ">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="POS" type="ota:POS_Type" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">POS provides a mechanisim to indicate the source of the message.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="CommissionRecipients">
+					<xs:annotation>
+						<xs:documentation>A collection of entities that are entitled to be paid a commission</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="CommissionRecipient" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="UniqueID" type="ota:UniqueID_Type" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation xml:lang="en">The unique identifier for the entity for which a commisison is due</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="Profile" type="ota:ProfileType">
+											<xs:annotation>
+												<xs:documentation xml:lang="en">Profile information representing the party for which commission is due</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="CommissionableReservations" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="CommissionableReservation">
+														<xs:annotation>
+															<xs:documentation>The reservation for which a commission is being calculated</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:complexContent>
+																<xs:extension base="ota:HotelReservationType">
+																	<xs:sequence>
+																		<xs:element name="CommissionInfo " type="ota:CommissionType">
+																			<xs:annotation>
+																				<xs:documentation>Commission information for a reservation stay</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:extension>
+															</xs:complexContent>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="TotalCommission " type="ota:CommissionType">
+											<xs:annotation>
+												<xs:documentation>The sum of all reservation commissions for a given commission recipient</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attributeGroup ref="ota:OTA_PayloadStdAttributes"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+
+
+
+

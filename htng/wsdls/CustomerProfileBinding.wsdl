@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://htng.org/2014B" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsp="http://www.w3.org/ns/ws-policy" name="CustomerProfileBinding" targetNamespace="http://htng.org/2014B">
+	<wsdl:import namespace="http://htng.org/2014B" location="CustomerProfilePort.wsdl"/>
+	<wsdl:binding name="CustomerProfileBinding" type="tns:CustomerProfile">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="SearchProfile">
+			<soap:operation soapAction="http://htng.org/2014B/HTNG_CustomerProfileService#SearchProfile" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ReadProfile">
+			<soap:operation soapAction="http://htng.org/2014B/HTNG_CustomerProfileService#ReadProfile" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CreateProfile">
+			<soap:operation soapAction="http://htng.org/2014B/HTNG_CustomerProfileService#CreateProfile" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ModifyProfile">
+			<soap:operation soapAction="http://htng.org/2014B/HTNG_CustomerProfileService#ModifyProfile" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="MergeProfiles">
+			<soap:operation soapAction="http://htng.org/2014B/HTNG_CustomerProfileService#MergeProfiles" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>
+
+
+

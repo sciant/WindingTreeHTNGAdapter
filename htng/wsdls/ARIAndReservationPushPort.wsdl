@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://htng.org/2014B" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ARIAndReservationPush" targetNamespace="http://htng.org/2014B">
+	<wsdl:import namespace="http://htng.org/2014B" location="HTNG_CommonMessages.wsdl"/>
+	<wsdl:portType name="ARIAndReservationPush">
+		<wsdl:operation name="OTA_HotelAvailNotifRQ">
+			<wsdl:input message="tns:OTA_HotelAvailNotifRQ"/>
+			<wsdl:output message="tns:OTA_HotelAvailNotifRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="OTA_HotelInvBlockNotifRQ">
+			<wsdl:input message="tns:OTA_HotelInvBlockNotifRQ"/>
+			<wsdl:output message="tns:OTA_HotelInvBlockNotifRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="OTA_HotelInvCountNotifRQ">
+			<wsdl:input message="tns:OTA_HotelInvCountNotifRQ"/>
+			<wsdl:output message="tns:OTA_HotelInvCountNotifRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="OTA_HotelRatePlanNotifRQ">
+			<wsdl:input message="tns:OTA_HotelRatePlanNotifRQ"/>
+			<wsdl:output message="tns:OTA_HotelRatePlanNotifRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="OTA_HotelResNotifRQ">
+			<wsdl:input message="tns:OTA_HotelResNotifRQ"/>
+			<wsdl:output message="tns:OTA_HotelResNotifRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="OTA_HotelStatsNotifRQ">
+			<wsdl:input message="tns:OTA_HotelStatsNotifRQ"/>
+			<wsdl:output message="tns:OTA_HotelStatsNotifRS"/>
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>
+
+
+
+

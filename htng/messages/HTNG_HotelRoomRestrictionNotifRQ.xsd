@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.002" id="HTNG2014B">
+	<xs:include schemaLocation="../schemas/HTNG_CommonTypes.xsd"/>
+	<xs:include schemaLocation="../schemas/HTNG_SimpleTypes.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_CommonTypes.xsd"/>
+	<xs:annotation>
+		<xs:documentation xml:lang="en">Room Restrictions are used to change the availability of services provided to a guest in their room.  This may be due to the guests ability to pay and/or to restrict content.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="HTNG_HotelRoomRestrictionNotifRQ">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:annotation>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+				<xs:extension base="HTNG_RequestBaseType">
+					<xs:sequence>
+						<xs:element name="Systems">
+							<xs:annotation>
+								<xs:documentation>A collection of systems</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="System" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>An individual system that is to honor restriction instructions.</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Restrictions" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>A collection of individual restrictions supported by a system.</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="Restriction" maxOccurs="unbounded">
+																<xs:annotation>
+																	<xs:documentation>An individual restriction.</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:attribute name="Type" type="ota:StringLength1to16">
+																		<xs:annotation>
+																			<xs:documentation>The type of feature being restricted or allowed.  Possible values could be MOVIES, GAMES, INTERNET, TELEPHONE, REFRESHMENTS, etc.</xs:documentation>
+																		</xs:annotation>
+																	</xs:attribute>
+																	<xs:attribute name="Status" type="ota:StringLength1to16">
+																		<xs:annotation>
+																			<xs:documentation>Recommended values are RESTRICTED and ALLOW.</xs:documentation>
+																		</xs:annotation>
+																	</xs:attribute>
+																	<xs:attribute name="Level" type="ota:StringLength1to16">
+																		<xs:annotation>
+																			<xs:documentation>System and Type-specific levels of restrictions (for MOVIES the values may be G, PG, PG-13, R, NC-17, for a TELEPHONE system the values may be LOCAL, LONGDISTANCE, INTERNATIONAL.)</xs:documentation>
+																		</xs:annotation>
+																	</xs:attribute>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="Type" type="ota:StringLength1to16">
+												<xs:annotation>
+													<xs:documentation>The type of feature being restricted or allowd.  Possible values could be MOVIES, GAMES, INTERNET, TELEPHONE, REFRESHMENTS, etc.</xs:documentation>
+												</xs:annotation>
+											</xs:attribute>
+											<xs:attribute name="Status" type="ota:StringLength1to16">
+												<xs:annotation>
+													<xs:documentation>Recommended values are RESTRICTED and ALLOW.</xs:documentation>
+												</xs:annotation>
+											</xs:attribute>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Room" type="HTNG_ComponentRoomType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Used to convey information about a single room or a suite comprised of room components.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="ota:TPA_Extensions" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>This is used to exchange custom/implementation-specific values that are agreed upon between trading partners.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+
+
+
+

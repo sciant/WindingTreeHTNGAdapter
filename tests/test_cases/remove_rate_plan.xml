@@ -1,0 +1,18 @@
+<Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.opentravel.org/OTA/2003/05">
+   <Header/>
+   <Body>
+        <OTA_HotelRatePlanNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05"
+                                TimeStamp="2013-05-19T10:30:47-05:00" EchoToken="b01693e8-4957-4e1b-a215-de5caa48fffb"
+                                Target="Production" Version="1.001" MessageContentCode="8">
+            <POS>
+                <Source>
+                    <RequestorID Type="2" ID="SEASID"/>
+                </Source>
+            </POS>
+            <RatePlans HotelCode="TEST_HOTEL">
+                <RatePlan RatePlanCode="DSC" RatePlanStatusType="Deactivated" RatePlanNotifType="Remove">
+                </RatePlan>
+            </RatePlans>
+        </OTA_HotelRatePlanNotifRQ>
+   </Body>
+</Envelope>

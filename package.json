@@ -1,0 +1,35 @@
+{
+  "name": "windintreehtngadapter",
+  "version": "1.0.0",
+  "description": "HTNG adapter for WindingTree",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd tests && jest ./testTranslation.spec.js",
+    "test_integration": "cd tests && jest ./testWindingTreeIntegration.spec.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@lab.sciant.com:georgi.yovchev/WindinTreeHTNGAdapter.git"
+  },
+  "keywords": [
+    "htng",
+    "js",
+    "windingtree",
+    "wt",
+    "adapter",
+    "soap",
+    "xml",
+    "ota"
+  ],
+  "author": "Sciant AD",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "jsonschema": "^1.2.4",
+    "soap": "^0.25.0"
+  }
+}

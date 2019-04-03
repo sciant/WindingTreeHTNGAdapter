@@ -1,0 +1,200 @@
+{
+  "ratePlans":[
+     {
+        "id": "DSC0",
+        "availableForTravel":{
+           "from":"2013-07-02",
+           "to":"2013-09-02"
+        },
+        "currency":"USD",
+        "description":"Discount Rate 1 - Room Only",
+        "modifiers":[
+           {
+              "adjustment":-35.483870967741936,
+              "conditions":{
+                 "from":"2013-07-02",
+                 "minOccupants":2,
+                 "to":"2013-09-02"
+              },
+            "unit": "percentage"
+           },
+           {
+              "adjustment":-51.61290322580645,
+              "conditions":{
+                 "minOccupants":3
+              },
+              "unit": "percentage"
+           },
+           {
+              "adjustment":-53.76344086021505,
+              "conditions":{
+                 "maxAge":12,
+                 "minOccupants":3
+              },
+              "unit": "percentage"
+           }
+        ],
+        "name":"Discount Rate 1",
+        "price":124,
+        "restrictions":{
+           "lengthOfStay":{
+              "max":10,
+              "min":1
+           }
+        },
+        "roomTypeIds":[
+           "KING"
+        ],
+        "updatedAt":"2018-10-27T18:13:32.387Z"
+     },
+     {
+        "id": "DSC1",
+        "availableForTravel":{
+           "from":"2013-04-05",
+           "to":"2013-09-02"
+        },
+        "currency":"USD",
+        "description":"Discount Rate 1 - Room Only",
+        "modifiers":[
+           {
+              "adjustment":-38.63636363636363,
+              "conditions":{
+                 "from":"2013-04-05",
+                 "minOccupants":2,
+                 "to":"2013-09-02"
+              },
+              "unit": "percentage"
+           },
+           {
+              "adjustment":-51.51515151515152,
+              "conditions":{
+                 "minOccupants":3
+              },
+              "unit": "percentage"
+           },
+           {
+              "adjustment":-54.54545454545455,
+              "conditions":{
+                 "maxAge":12,
+                 "minOccupants":3
+              },
+              "unit": "percentage"
+           }
+        ],
+        "name":"Discount Rate 1",
+        "price":88,
+        "restrictions":{
+           "lengthOfStay":{
+              "max":10,
+              "min":1
+           }
+        },
+        "roomTypeIds":[
+           "QUEEN"
+        ],
+        "updatedAt":"2018-10-27T18:13:32.387Z"
+     },
+     {
+        "id": "RED0",
+        "availableForTravel":{
+           "from":"2013-07-02",
+           "to":"2013-07-02"
+        },
+        "currency":"USD",
+        "description":"Discount Rate 1 - Room Only",
+        "modifiers":[
+           {
+              "adjustment":-37.5,
+              "conditions":{
+                 "from":"2013-07-02",
+                 "minOccupants":2,
+                 "to":"2013-07-02"
+              },
+              "unit": "percentage"
+           },
+           {
+              "adjustment":-51.66666666666666,
+              "conditions":{
+                 "from":"2013-07-02",
+                 "minOccupants":3,
+                 "to":"2013-07-02"
+              },
+              "unit": "percentage"
+           },
+           {
+              "adjustment":-55.83333333333334,
+              "conditions":{
+                 "from":"2013-07-02",
+                 "maxAge":12,
+                 "minOccupants":3,
+                 "to":"2013-07-02"
+              },
+              "unit": "percentage"
+           }
+        ],
+        "name":"Discount Rate 1",
+        "price":200,
+        "restrictions":{
+           "lengthOfStay":{
+              "max":10,
+              "min":1
+           }
+        },
+        "roomTypeIds":[
+           "KING"
+        ],
+        "updatedAt":"2018-10-27T18:13:32.387Z"
+     },
+     {
+        "id": "RED1",
+        "availableForTravel":{
+           "from":"2013-07-02",
+           "to":"2013-09-02"
+        },
+        "currency":"USD",
+        "description":"Discount Rate 1 - Room Only",
+        "modifiers":[
+           {
+              "adjustment":-43.05555555555556,
+              "conditions":{
+                 "from":"2013-07-02",
+                 "minOccupants":2,
+                 "to":"2013-09-02"
+              },
+              "unit": "percentage"
+           },
+           {
+              "adjustment":-56.48148148148149,
+              "conditions":{
+                 "from":"2013-07-02",
+                 "minOccupants":3,
+                 "to":"2013-09-02"
+              },
+              "unit": "percentage"
+           },
+           {
+              "adjustment":-59.814814814814824,
+              "conditions":{
+                 "from":"2013-07-02",
+                 "maxAge":12,
+                 "minOccupants":3,
+                 "to":"2013-09-02"
+              },
+              "unit": "percentage"
+           }
+        ],
+        "name":"Discount Rate 1",
+        "price":180,
+        "restrictions":{
+           "lengthOfStay":{
+              "max":10,
+              "min":1
+           }
+        },
+        "roomTypeIds":[
+           "QUEEN"
+        ],
+        "updatedAt":"2018-10-27T18:13:32.387Z"
+     }
+   ]
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.001" id="HTNG2014B">
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_CommonTypes.xsd"/>
+	<xs:include schemaLocation="../schemas/HTNG_CommonTypes.xsd"/>
+	<xs:include schemaLocation="../schemas/HTNG_SimpleTypes.xsd"/>
+	<xs:element name="HTNG_StatisticsRQ">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Request for Data</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="RequestorID" type="ota:UniqueID_Type">
+					<xs:annotation>
+						<xs:documentation xml:lang="en"/>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Queries">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Query" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="RequestParameters" type="HTNG_KeyValueItemsType">
+											<xs:annotation>
+												<xs:documentation xml:lang="en">Agreed Data Parameters (Agreed between parties exchanging data)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ResponseParameters">
+											<xs:complexType>
+												<xs:attribute name="ResultFormat" type="HTNG_ResultFormatType" default="XML"/>
+												<xs:attribute name="Size" type="xs:integer" default="1"/>
+												<xs:attribute name="UnitOfMeasure" type="HTNG_QueryResultListType" default="All Ascending"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="StoredQueryName" type="xs:string"/>
+									<xs:attribute name="QueryTrackingID" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attributeGroup ref="ota:OTA_PayloadStdAttributes">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">This element defines standard attributes that appear on the root element for all OTA payloads.</xs:documentation>
+				</xs:annotation>
+			</xs:attributeGroup>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+
+
+
+

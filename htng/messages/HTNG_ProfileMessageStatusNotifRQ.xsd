@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.002" id="HTNG2014B">
+	<xs:include schemaLocation="../schemas/HTNG_SimpleTypes.xsd"/>
+	<xs:include schemaLocation="../schemas/HTNG_CommonTypes.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_CommonTypes.xsd"/>
+	<xs:annotation>
+		<xs:documentation xml:lang="en">Alerts subscribing systems of a new text message or voicemail.  It can also be used to change the status of a message.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="HTNG_ProfileMessageStatusNotifRQ">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="HTNG_RequestBaseType">
+					<xs:sequence>
+						<xs:element name="Room" type="HTNG_ComponentRoomType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Used to convey information about a single room or a suite comprised of room components.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ProfileMessageSummary" type="HTNG_ProfileMessageSummaryType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A container element used as a quick reference for the number of messages, by message type.	A container element used as a quick reference for the number of messages, by message type.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ProfileMessages">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A collection of messages.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ProfileMessage" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">An individual message.</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:complexContent>
+												<xs:extension base="ota:ParagraphType">
+													<xs:attribute name="CreatedBySystemID" type="ota:StringLength1to16" use="optional">
+														<xs:annotation>
+															<xs:documentation xml:lang="en">The identifier of the system that created the message.</xs:documentation>
+														</xs:annotation>
+													</xs:attribute>
+													<xs:attribute name="MessageID" type="ota:StringLength1to16" use="required">
+														<xs:annotation>
+															<xs:documentation xml:lang="en">A unique identifier for the message.</xs:documentation>
+														</xs:annotation>
+													</xs:attribute>
+													<xs:attribute name="Status" type="HTNG_ProfileMessageStatusType" use="required">
+														<xs:annotation>
+															<xs:documentation xml:lang="en">The current status of the message</xs:documentation>
+														</xs:annotation>
+													</xs:attribute>
+												</xs:extension>
+											</xs:complexContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="ota:TPA_Extensions" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">This is used to exchange custom/implementation-specific values that are agreed upon between trading partners.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+
+
+
+

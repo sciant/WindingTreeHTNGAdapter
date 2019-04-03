@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://htng.org/2014B" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChargePosting" targetNamespace="http://htng.org/2014B">
+	<wsdl:import namespace="http://htng.org/2014B" location="HTNG_CommonMessages.wsdl"/>
+	<wsdl:portType name="ChargePosting">
+		<wsdl:operation name="PostCharge">
+			<wsdl:input message="tns:HTNG_ChargePostingRQ"/>
+			<wsdl:output message="tns:HTNG_ChargePostingRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="DisplayCheck">
+			<wsdl:input message="tns:HTNG_CheckDisplayRQ"/>
+			<wsdl:output message="tns:HTNG_CheckDisplayRS"/>
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>
+
+
+

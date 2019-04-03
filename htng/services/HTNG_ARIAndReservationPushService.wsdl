@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://htng.org/2014B" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="HTNG_ARIAndReservationPushService" targetNamespace="http://htng.org/2014B">
+	<wsdl:import namespace="http://htng.org/2014B" location="http://localhost:8000/wsdls/ARIAndReservationPushBinding.wsdl"/>
+	<wsdl:service name="HTNG_ARIAndReservationPushService">
+		<wsdl:port name="ARIAndReservationPush" binding="tns:ARIAndReservationPushBinding">
+			<soap:address location="http://localhost:8000/wsdl"/>
+			<!-- UPDATE LOCATION ATTRIBUTE TO YOUR LOCAL SERVICE LOCATION-->
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
+
+
+

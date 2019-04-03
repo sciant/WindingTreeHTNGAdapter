@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.001" id="HTNG2014B">
+  <xs:include schemaLocation="../schemas/HTNG_CommonTypes.xsd"/>
+  <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_CommonTypes.xsd"/>
+  <xs:annotation>
+    <xs:documentation xml:lang="en">This message alerts subscribing systems that a change has occurred to the guest or its corresponding stay. </xs:documentation>
+  </xs:annotation>
+  <xs:element name="HTNG_DeviceEventRQ">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="HTNG_RequestBaseType">
+          <xs:sequence>
+            <xs:element name="Device" type="HTNG_DeviceType">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Used to convey information about a single room or a suite comprised of room components.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

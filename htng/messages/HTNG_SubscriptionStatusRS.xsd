@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by Doug Rice (HTNG) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wse="http://www.w3.org/2011/03/ws-evt" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.002" id="HTNG2014B">
+  <xs:import namespace="http://www.w3.org/2005/08/addressing" schemaLocation="http://www.w3.org/2006/03/addressing/ws-addr.xsd"/>
+  <xs:import namespace="http://www.w3.org/2011/03/ws-evt" schemaLocation="http://www.w3.org/2011/03/ws-evt/eventing.xsd"/>
+  <xs:annotation>
+    <xs:documentation xml:lang="en"/>
+  </xs:annotation>
+  <xs:element name="HTNG_SubscriptionStatusRS">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Subscriptions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Subscription" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="TypeOfEvent" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="MessageDef" type="xs:string"/>
+                          <xs:element name="SendSubscribeTo" type="xs:string"/>
+                          <xs:element name="Description" type="xs:string" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation xml:lang="en">Brief description of the Event Type. More detail should be available from the various message specifications within other workgroups</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element name="FilterDialects" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence maxOccurs="unbounded">
+                                <xs:element name="FilterDialect" type="xs:string"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="EventID" type="xs:string"/>
+                        <xs:attribute name="VendorVersionID" type="xs:string"/>
+                        <xs:attribute name="VendorID" type="xs:string"/>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="SubscriptionManager" type="wsa:EndpointReferenceType"/>
+                    <xs:element name="GrantedExpires" type="wse:MiniExpirationType"/>
+                    <xs:element name="EndTo" type="wsa:EndpointReferenceType" minOccurs="0"/>
+                    <xs:element name="Delivery" type="wse:DeliveryType"/>
+                    <xs:element name="Filter" type="wse:FilterType" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

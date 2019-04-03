@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.001" id="HTNG2014B">
+	<xs:include schemaLocation="../schemas/HTNG_CommonTypes.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_CommonTypes.xsd"/>
+	<xs:annotation>
+		<xs:documentation xml:lang="en">The Guest Room Move message is used to reassign a checked-in guest to another room.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="HTNG_HotelRoomMoveNotifRQ">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="HTNG_RequestBaseType">
+					<xs:sequence>
+						<xs:element name="AffectedGuests" type="HTNG_CollectionOfUniqueIDs">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A collection of guests and/or reservations that are impacted by a room move.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="SourceRoomInformation">
+							<xs:annotation>
+								<xs:documentation>This represents where the reservation/guest is moving from.  Note: If this is a single reservation, Room information must be supplied, but reservations/guest information will not.  If it is a shared room, the occupants remaining in the room must be represented in HotelReservations.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Room" type="HTNG_RoomElementType">
+										<xs:annotation>
+											<xs:documentation>Used to convey information about a single room or a suite comprised of room components.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="HotelReservations" type="ota:HotelReservationsType">
+										<xs:annotation>
+											<xs:documentation>Used to convey information about the reservations and guests that will be remaining in the room after the room move is complete.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="TPA_Extensions" type="ota:TPA_ExtensionsType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>This is used to exchange custom/implementation-specific values that are agreed upon between trading partners.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="DestinationRoomInformation">
+							<xs:annotation>
+								<xs:documentation>This represents where the reservation/guest is moving to.  Note: If a room share is being created, the HotelReservations must represent all reservations in the share and one reservation must be indicated as the primary.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Room" type="HTNG_RoomElementType">
+										<xs:annotation>
+											<xs:documentation>Used to convey information about a single room or a suite comprised of room components.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="HotelReservations" type="ota:HotelReservationsType">
+										<xs:annotation>
+											<xs:documentation>Used to convey information about the reservations and  guests moving from the Source room to the Destination room.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="TPA_Extensions" type="ota:TPA_ExtensionsType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>This is used to exchange custom/implementation-specific values that are agreed upon between trading partners.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TPA_Extensions" type="ota:TPA_ExtensionsType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>This is used to exchange custom/implementation-specific values that are agreed upon between trading partners.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+
+
+
+

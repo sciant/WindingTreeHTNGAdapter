@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://htng.org/2014B" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsp="http://www.w3.org/ns/ws-policy" name="SeamlessShopAndBookBinding" targetNamespace="http://htng.org/2014B">
+	<wsdl:import namespace="http://htng.org/2014B" location="SeamlessShopAndBookPort.wsdl"/>
+	<wsdl:binding name="SeamlessShopAndBookBinding" type="tns:SeamlessShopAndBook">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="CheckAvailability">
+			<soap:operation soapAction="http://htng.org/2014B/HTNG_SeamlessShopAndBookService#CheckAvailability" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ProcessReservationRequest">
+			<soap:operation soapAction="http://htng.org/2014B/HTNG_SeamlessShopAndBookService#ProcessReservationRequest" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="RetrieveReservations">
+			<soap:operation soapAction="http://htng.org/2014B/HTNG_SeamlessShopAndBookService#RetrieveReservations" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpsellRequest">
+			<soap:operation soapAction="http://htng.org/2014B/HTNG_SeamlessShopAndBookService#HTNG_HotelRoomTypeUpsellRQ" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>
+
+
+

@@ -1,0 +1,159 @@
+{
+  "availability": {
+    "roomTypes": [{
+          "date": "2013-01-01",
+          "quantity": 10,
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-02",
+          "quantity": 10,
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-03",
+          "quantity": 10,
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-04",
+          "quantity": 10,
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-05",
+          "quantity": 5,
+          "restrictions": {
+            "noArrival": true
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-06",
+          "quantity": 5,
+          "restrictions": {
+            "noArrival": true
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-07",
+          "quantity": 5,
+          "restrictions": {
+            "noArrival": true
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-08",
+          "quantity": 5,
+          "restrictions": {
+            "noArrival": true
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-09",
+          "quantity": 10,
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-10",
+          "quantity": 10,
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-11",
+          "quantity": 5,
+          "restrictions": {
+            "noArrival": true
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-12",
+          "quantity": 5,
+          "restrictions": {
+            "noArrival": true
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-13",
+          "quantity": 5,
+          "restrictions": {
+            "noArrival": true
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-14",
+          "quantity": 8,
+          "restrictions": {
+            "noArrival": true,
+            "noDeparture": false
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-15",
+          "quantity": 8,
+          "restrictions": {
+            "noArrival": true,
+            "noDeparture": false
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-18",
+          "quantity": 8,
+          "restrictions": {
+            "noArrival": true,
+            "noDeparture": false
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-16",
+          "quantity": 3,
+          "restrictions": {
+            "noDeparture": false
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-17",
+          "quantity": 3,
+          "restrictions": {
+            "noDeparture": false
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-19",
+          "quantity": 3,
+          "restrictions": {
+            "noDeparture": false
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-20",
+          "quantity": 3,
+          "restrictions": {
+            "noDeparture": false
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-21",
+          "quantity": 3,
+          "restrictions": {
+            "noDeparture": false
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-22",
+          "quantity": 3,
+          "restrictions": {
+            "noDeparture": false
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-23",
+          "quantity": 3,
+          "restrictions": {
+            "noDeparture": false
+          },
+          "roomTypeId": "KING"
+        }, {
+          "date": "2013-01-24",
+          "quantity": 3,
+          "restrictions": {
+            "noDeparture": false
+          },
+          "roomTypeId": "KING"
+        }],
+        "updatedAt": "2012-08-01T09:30:47-05:00"
+      }
+}

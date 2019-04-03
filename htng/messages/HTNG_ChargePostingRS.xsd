@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by Doug Rice (HTNG) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.000" id="HTNG2014B">
+  <xs:include schemaLocation="../schemas/HTNG_CommonTypes.xsd"/>
+  <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_CommonTypes.xsd"/>
+  <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_LoyaltyCommonTypes.xsd"/>
+  <xs:annotation>
+    <xs:documentation xml:lang="en">Used to convey the outcome of processing the corresponding request</xs:documentation>
+  </xs:annotation>
+  <xs:element name="HTNG_ChargePostingRS">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="HTNG_ResponseBaseType">
+          <xs:sequence>
+            <xs:element name="PostingGUID" type="xs:string"/>
+            <xs:element name="TotalPostingAmount" minOccurs="0">
+              <xs:complexType>
+                <xs:attributeGroup ref="ota:CurrencyAmountGroup"/>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="AuthorizationResult" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Result information from the authorization process.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="AccountAuthorization" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Specifies account information about the customer seeking authorization.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="AccountInfo" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>Information about the account.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="AccountName" type="ota:StringLength1to64" use="optional">
+                              <xs:annotation>
+                                <xs:documentation xml:lang="en">The name on the account.</xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                            <xs:attribute name="CompanyName" type="ota:StringLength1to64" use="optional">
+                              <xs:annotation>
+                                <xs:documentation xml:lang="en">Describes the name of the company to which the account is attached.</xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                            <xs:attribute name="AccountID" type="ota:StringLength1to64" use="optional">
+                              <xs:annotation>
+                                <xs:documentation xml:lang="en">Identifier for the account assigned by the merchant.</xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                            <xs:attribute name="Password" type="ota:StringLength1to64" use="optional">
+                              <xs:annotation>
+                                <xs:documentation xml:lang="en">Password attached to the account.</xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                            <xs:attribute name="Code" type="ota:OTA_CodeType" use="optional">
+                              <xs:annotation>
+                                <xs:documentation xml:lang="en">Describes the type of the account. Refer to OpenTravel Code List Payment Type (PMT).</xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                      <xs:attributeGroup ref="ota:CurrencyAmountGroup"/>
+                      <xs:attribute name="NonISO_CurrencyCode" type="ota:StringLength1to8" use="optional">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Specifying the currency used in the authorization, when it isn't a ISO 4217, three alpha code (e.g., points, miles).</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="AuthorizationCode" use="optional">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">The unique code returned by the authorizing party. This is returned for successful authorizations.</xs:documentation>
+                  </xs:annotation>
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[A-Za-z0-9]{1,12}"/>
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="ApprovalDateTime" type="ota:DateOrDateTimeType" use="optional">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">The date and time that the approval was issued.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Result" use="optional">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">Information returned by the credit card vendor describing the results of the processing of the request.</xs:documentation>
+                  </xs:annotation>
+                  <xs:simpleType>
+                    <xs:restriction base="xs:NMTOKEN">
+                      <xs:enumeration value="Approved">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Credit card authorization was approved</xs:documentation>
+                        </xs:annotation>
+                      </xs:enumeration>
+                      <xs:enumeration value="ApprovedWithPositiveID">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Credit card authorization is approved upon card holder presenting positive identification.</xs:documentation>
+                        </xs:annotation>
+                      </xs:enumeration>
+                      <xs:enumeration value="Denied">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Credit card authorization is denied and no reason is given.</xs:documentation>
+                        </xs:annotation>
+                      </xs:enumeration>
+                      <xs:enumeration value="DeniedPickupCard">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Indicates that credit card authorization is not approved and that the credit card should be withheld from the customer.</xs:documentation>
+                        </xs:annotation>
+                      </xs:enumeration>
+                      <xs:enumeration value="ReferToIssuer">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Credit card authorization is not approved and card holder should check with the issuer of the card.</xs:documentation>
+                        </xs:annotation>
+                      </xs:enumeration>
+                      <xs:enumeration value="EditError">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Credit card authorization request has incurred an edit error on the information entered.</xs:documentation>
+                        </xs:annotation>
+                      </xs:enumeration>
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="AddressResultCode" use="optional">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">The result of the address validation.</xs:documentation>
+                  </xs:annotation>
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[A-Za-z0-9]{1,6}"/>
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="CVC_Result" use="optional">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">A response from the validation of the Card Verification Code (CVC/CSC- Card Security Code or CVV/CVS Card Verification Value), a security feature for credit card transactions.</xs:documentation>
+                  </xs:annotation>
+                  <xs:simpleType>
+                    <xs:restriction base="xs:NMTOKEN">
+                      <xs:enumeration value="Match">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">The CV code entered matches what is in the customer file.</xs:documentation>
+                        </xs:annotation>
+                      </xs:enumeration>
+                      <xs:enumeration value="DoesNotMatch">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">The CV code entered does not match what is in the customer file.</xs:documentation>
+                        </xs:annotation>
+                      </xs:enumeration>
+                      <xs:enumeration value="NotProcessed">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">The CV code could not be processed.</xs:documentation>
+                        </xs:annotation>
+                      </xs:enumeration>
+                      <xs:enumeration value="Required">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">The CV code was not provided but is required.</xs:documentation>
+                        </xs:annotation>
+                      </xs:enumeration>
+                      <xs:enumeration value="IssuerNotCertified">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">The issuer is not authorized to use this CV code.</xs:documentation>
+                        </xs:annotation>
+                      </xs:enumeration>
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="Description" type="ota:StringLength1to64" use="optional">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">Additional response information.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Accounts" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Account" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                      <xs:complexContent>
+                        <xs:extension base="ota:UniqueID_Type">
+                          <xs:sequence>
+                            <xs:element name="PersonName" type="ota:PersonNameType" minOccurs="0"/>
+                          </xs:sequence>
+                        </xs:extension>
+                      </xs:complexContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="LoyaltyAccountInfo" type="ota:AccountInfoType" minOccurs="0" maxOccurs="999">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">Loyalty account information used to create certificate.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Vouchers" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Voucher">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">Details of a paper or electronic document indicating prepayment.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:attributeGroup ref="ota:VoucherGroup">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">The effective date, expiry date and series code of the voucher.</xs:documentation>
+                        </xs:annotation>
+                      </xs:attributeGroup>
+                      <xs:attributeGroup ref="ota:CurrencyAmountGroup"/>
+                      <xs:attribute name="BillingNumber" type="ota:StringLength1to64" use="optional">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Reference of the billing account which handles the payment transaction.</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                      <xs:attribute name="SupplierIdentifier" type="ota:StringLength1to64" use="optional">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Unique identifier of the electronic voucher, created by the supplier.</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                      <xs:attribute name="Identifier" type="ota:StringLength1to64" use="optional">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Unique identifier of the electronic voucher.</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                      <xs:attribute name="ValueType" type="ota:StringLength1to32" use="optional">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Defines the type of voucher (e.g., full credit or partial credit).</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                      <xs:attribute name="ElectronicIndicator" type="xs:boolean" use="optional">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">When true, indicates the voucher is electronic. An E-voucher is a value document issued by the Travel Agent for the customer. The e-voucher can be used as a proof of reservation, but more normally, as a full-payment or partial payment.</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+

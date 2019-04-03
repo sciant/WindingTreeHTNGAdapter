@@ -1,0 +1,33 @@
+<Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.opentravel.org/OTA/2003/05">
+   <Header/>
+   <Body>
+        <OTA_HotelAvailNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" TimeStamp="2012-08-01T09:30:47-05:00" EchoToken="b9d592ad-658f-4d2b-90c4-baa729df1a37" Target="Production" Version="1.001" TransactionIdentifier="938383"
+        MessageContentCode="1">
+            <POS>
+            <Source>
+            <RequestorID Type="10" ID="ABC" />
+            </Source>
+            </POS>
+            <AvailStatusMessages HotelCode="TEST_HOTEL">
+                <AvailStatusMessage BookingLimit="5" BookingLimitMessageType="SetLimit" BookingThreshold="10">
+                    <StatusApplicationControl Start="2013-01-05" End="2013-01-18"
+                    InvTypeCode="KING" Mon="1" Tue="1" Weds="0" Thur="0" Fri="1" Sat="1" Sun="1"/>
+                    <LengthsOfStay>
+                        <LengthOfStay MinMaxMessageType="SetMinLOS" Time="2" TimeUnit="Day"/>
+                    </LengthsOfStay>
+                    <UniqueID Type="16" ID="1"/>
+                    <RestrictionStatus Restriction="Arrival" Status="Close"/>
+                </AvailStatusMessage>
+                <AvailStatusMessage BookingLimit="3" BookingLimitMessageType="AdjustLimit">
+                    <StatusApplicationControl Start="2013-01-14" End="2013-01-24"
+                    InvTypeCode="KING" Mon="1" Tue="1" Weds="1" Thur="1" Fri="1" Sat="1" Sun="1"/>
+                    <LengthsOfStay>
+                        <LengthOfStay MinMaxMessageType="SetMinLOS" Time="2" TimeUnit="Day"/>
+                    </LengthsOfStay>
+                    <UniqueID Type="16" ID="1"/>
+                    <RestrictionStatus Restriction="Departure" Status="Open"/>
+                </AvailStatusMessage>
+            </AvailStatusMessages>
+        </OTA_HotelAvailNotifRQ>
+   </Body>
+</Envelope>

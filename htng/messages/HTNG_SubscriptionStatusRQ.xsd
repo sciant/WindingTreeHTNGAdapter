@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by Doug Rice (HTNG) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.002" id="HTNG2014B">
+  <xs:annotation>
+    <xs:documentation xml:lang="en"/>
+  </xs:annotation>
+  <xs:element name="HTNG_SubscriptionStatusRQ">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SubscriberID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

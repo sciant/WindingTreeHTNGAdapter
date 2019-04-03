@@ -1,0 +1,96 @@
+[
+  {
+    "id": "DSC0",
+    "name": "Discount Rate 1",
+    "modifiers": [
+      {
+        "conditions": {
+          "to": "2013-09-02",
+          "minOccupants": 2,
+          "from": "2013-07-02"
+        },
+        "adjustment": -35.483870967741936,
+        "unit": "percentage"
+      },
+      {
+        "conditions": {
+          "minOccupants": 3
+        },
+        "adjustment": -51.61290322580645,
+        "unit": "percentage"
+      },
+      {
+        "conditions": {
+          "maxAge": 12,
+          "minOccupants": 3
+        },
+        "adjustment": -53.76344086021505,
+        "unit": "percentage"
+      }
+    ],
+    "roomTypeIds": [
+      "KING"
+    ],
+    "restrictions": {
+      "lengthOfStay": {
+        "min": 1,
+        "max": 10
+      }
+    },
+    "updatedAt": "2018-10-27T18:13:32.387Z",
+    "currency": "USD",
+    "description": "Discount Rate 1 - Room Only",
+    "availableForTravel": {
+      "to": "2013-09-02",
+      "from": "2013-07-02"
+    },
+    "price": 124.0
+  },
+  {
+    "id": "DSC1",
+    "name": "Discount Rate 1",
+    "modifiers": [
+      {
+        "conditions": {
+          "to": "2013-09-02",
+          "minOccupants": 2,
+          "from": "2013-04-05"
+        },
+        "adjustment": -38.63636363636363,
+        "unit": "percentage"
+      },
+      {
+        "conditions": {
+          "minOccupants": 3
+        },
+        "adjustment": -51.51515151515152,
+        "unit": "percentage"
+      },
+      {
+        "conditions": {
+          "maxAge": 12,
+          "minOccupants": 3
+        },
+        "adjustment": -54.54545454545455,
+        "unit": "percentage"
+      }
+    ],
+    "roomTypeIds": [
+      "QUEEN"
+    ],
+    "restrictions": {
+      "lengthOfStay": {
+        "min": 1,
+        "max": 10
+      }
+    },
+    "updatedAt": "2018-10-27T18:13:32.387Z",
+    "currency": "USD",
+    "description": "Discount Rate 1 - Room Only",
+    "availableForTravel": {
+      "to": "2013-09-02",
+      "from": "2013-04-05"
+    },
+    "price": 88.0
+  }
+]

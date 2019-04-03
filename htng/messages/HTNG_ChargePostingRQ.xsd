@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.001" id="HTNG2014B">
+  <xs:include schemaLocation="../schemas/HTNG_CommonTypes.xsd"/>
+  <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_CommonTypes.xsd"/>
+  <xs:annotation>
+    <xs:documentation>message alerts subscribing systems of the arrival of new guest(s) that will be occupying a room.</xs:documentation>
+  </xs:annotation>
+  <xs:element name="HTNG_ChargePostingRQ">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="HTNG_RequestBaseType">
+          <xs:sequence>
+            <xs:element name="Posting">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="RevenueCenter">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="Terminal">
+                          <xs:complexType>
+                            <xs:attribute name="ID" type="ota:StringLength1to16"/>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                      <xs:attribute name="ID" type="ota:StringLength1to16"/>
+                      <xs:attribute name="Description" type="ota:StringLength1to32"/>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="TotalPostingAmount" minOccurs="0">
+                    <xs:complexType>
+                      <xs:attributeGroup ref="ota:CurrencyAmountGroup"/>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="ReconcilingCheckIDs" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ReconcilingCheckID" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="ServerInfo" type="ota:EmployeeInfoType" minOccurs="0"/>
+                  <xs:element name="CashierInfo" type="ota:EmployeeInfoType" minOccurs="0"/>
+                  <xs:element name="CustLoyalty" minOccurs="0" maxOccurs="5">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">Loyalty program information.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:attributeGroup ref="ota:CustomerLoyaltyGroup">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Details of the customer loyalty membership.</xs:documentation>
+                        </xs:annotation>
+                      </xs:attributeGroup>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Transaction">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="RevenueDetails" type="HTNG_RevenueDetailsType"/>
+                        <xs:element name="TaxItems" type="ota:TaxesType"/>
+                        <xs:element name="Tenders" type="HTNG_RevenueDetailsType"/>
+                      </xs:sequence>
+                      <xs:attribute name="TicketID" type="ota:StringLength1to16"/>
+                      <xs:attribute name="Table" type="ota:StringLength1to16"/>
+                      <xs:attribute name="Covers" type="ota:StringLength1to16"/>
+                      <xs:attribute name="OpenTime" type="ota:DateOrTimeOrDateTimeType"/>
+                      <xs:attribute name="CloseTime" type="ota:DateOrTimeOrDateTimeType"/>
+                      <xs:attribute name="MealPeriodID" type="ota:StringLength1to16"/>
+                      <xs:attribute name="DigitsDialed" type="ota:StringLength1to32"/>
+                      <xs:attribute name="Duration" type="xs:integer"/>
+                      <xs:attribute name="Extension" type="ota:StringLength1to16"/>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="ID" type="xs:string"/>
+                <xs:attribute name="ZoomInKey" type="xs:string"/>
+                <xs:attribute name="Void" type="xs:boolean"/>
+                <xs:attribute name="BusinessPeriod" type="xs:string"/>
+                <xs:attribute name="Type" type="HTNG_PostingType" use="optional"/>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="TPA_Extensions" type="ota:TPA_ExtensionsType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>A place holder in the schema to allow for additional elements and attributes to be included if required, per Trading Partner Agreement (TPA).</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+

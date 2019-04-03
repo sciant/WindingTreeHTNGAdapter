@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://htng.org/2014B" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SecureData" targetNamespace="http://htng.org/2014B">
+	<wsdl:import namespace="http://htng.org/2014B" location="HTNG_CommonMessages.wsdl"/>
+	<wsdl:portType name="SecureData">
+		<wsdl:operation name="HTNG_PaymentCardRQ">
+			<wsdl:input message="tns:HTNG_PaymentCardRQ"/>
+			<wsdl:output message="tns:HTNG_PaymentCardRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="HTNG_PaymentCardRQ_SubmitRequest">
+			<wsdl:input message="tns:HTNG_PaymentCardRQ"/>
+			<wsdl:output message="tns:HTNG_EmptyMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="HTNG_PaymentCardRQ_SubmitResult">
+			<wsdl:input message="tns:HTNG_PaymentCardRS"/>
+			<wsdl:output message="tns:HTNG_EmptyMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="HTNG_PaymentCardProxyRQ">
+			<wsdl:input message="tns:HTNG_PaymentCardProxyRQ"/>
+			<wsdl:output message="tns:HTNG_PaymentCardProxyRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="HTNG_PaymentCardProxyRQ_SubmitRequest">
+			<wsdl:input message="tns:HTNG_PaymentCardProxyRQ"/>
+			<wsdl:output message="tns:HTNG_EmptyMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="HTNG_PaymentCardProxyRQ_SubmitResult">
+			<wsdl:input message="tns:HTNG_PaymentCardProxyRS"/>
+			<wsdl:output message="tns:HTNG_EmptyMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>
+
+
+
+

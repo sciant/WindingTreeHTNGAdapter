@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.000" id="HTNG2014B">
+	<xs:include schemaLocation="../schemas/HTNG_SimpleTypes.xsd"/>
+	<xs:include schemaLocation="../schemas/HTNG_CommonTypes.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_CommonTypes.xsd"/>
+	<xs:annotation>
+		<xs:documentation xml:lang="en"/>
+	</xs:annotation>
+	<xs:element name="HTNG_ProfileMessageRS">
+		<xs:annotation>
+			<xs:documentation xml:lang="en"/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element name="Success" type="ota:SuccessType"/>
+					<xs:element name="Warnings" type="ota:WarningsType" minOccurs="0"/>
+					<xs:element name="UniqueID" type="ota:UniqueID_Type" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">The unique identifier element allows the trading partners to uniquely identify each ..., (i.e.  the entire message) for transaction tracability.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Room" type="HTNG_ComponentRoomType" minOccurs="0"/>
+					<xs:element name="ProfileMessageSummary" type="HTNG_ProfileMessageSummaryType" minOccurs="0"/>
+					<xs:element name="ProfileMessages">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="ProfileMessage" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:complexContent>
+											<xs:extension base="ota:ParagraphType">
+												<xs:attribute name="CreatedBySystemID" type="ota:StringLength1to16" use="optional"/>
+												<xs:attribute name="MessageID" type="ota:StringLength1to16" use="required"/>
+												<xs:attribute name="Status" type="HTNG_ProfileMessageStatusType" use="required"/>
+											</xs:extension>
+										</xs:complexContent>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:element name="Errors" type="ota:ErrorsType"/>
+			</xs:choice>
+			<xs:attributeGroup ref="ota:OTA_PayloadStdAttributes">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">This element defines standard attributes that appear on the root element for all OTA payloads.</xs:documentation>
+				</xs:annotation>
+			</xs:attributeGroup>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+
+
+
+

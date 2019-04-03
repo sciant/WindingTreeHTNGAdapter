@@ -1,0 +1,34 @@
+<Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.opentravel.org/OTA/2003/05">
+   <Header/>
+   <Body>
+        <OTA_HotelRatePlanNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05"
+                                TimeStamp="2013-05-18T17:13:32.387" EchoToken="1b55549c-63e9-4aa6-81e8-88c9528ac99e"
+                                Target="Production" Version="1.001">
+            <RatePlans HotelCode="TEST_HOTEL">
+                <RatePlan RatePlanCode="DSC" RatePlanNotifType="Delta">
+                    <Rates>
+                        <Rate Start="2013-04-05" End="2013-09-02" InvTypeCode="QUEEN">
+                            <BaseByGuestAmts>
+                                <BaseByGuestAmt NumberOfGuests="1" AgeQualifyingCode="10"
+                                                AmountBeforeTax="150.00"/>
+                                <BaseByGuestAmt NumberOfGuests="2" AgeQualifyingCode="10"
+                                                AmountBeforeTax="150.00"/>
+                            </BaseByGuestAmts>
+                            <AdditionalGuestAmounts>
+                                <AdditionalGuestAmount AgeQualifyingCode="10" Amount="25.00"/>
+                                <AdditionalGuestAmount AgeQualifyingCode="8" Amount="15.00"/>
+                            </AdditionalGuestAmounts>
+                        </Rate>
+                    </Rates>
+                    <BookingRules>
+                        <BookingRule>
+                            <LengthsOfStay>
+                                <LengthOfStay MinMaxMessageType="SetFixedLOS" Time="5" TimeUnit="Day"/>
+                            </LengthsOfStay>
+                        </BookingRule>
+                    </BookingRules>
+                </RatePlan>
+            </RatePlans>
+        </OTA_HotelRatePlanNotifRQ>
+   </Body>
+</Envelope>

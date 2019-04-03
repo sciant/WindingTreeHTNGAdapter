@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://htng.org/2014B" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SeamlessShopAndBook" targetNamespace="http://htng.org/2014B">
+	<wsdl:import namespace="http://htng.org/2014B" location="HTNG_CommonMessages.wsdl"/>
+	<wsdl:portType name="SeamlessShopAndBook">
+		<wsdl:operation name="CheckAvailability">
+			<wsdl:input message="tns:OTA_HotelAvailRQ"/>
+			<wsdl:output message="tns:OTA_HotelAvailRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="ProcessReservationRequest">
+			<wsdl:input message="tns:OTA_HotelResRQ"/>
+			<wsdl:output message="tns:OTA_HotelResRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="RetrieveReservations">
+			<wsdl:input message="tns:OTA_ReadRQ"/>
+			<wsdl:output message="tns:OTA_ResRetrieveRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="UpsellRequest">
+			<wsdl:input message="tns:HTNG_HotelRoomTypeUpsellRQ"/>
+			<wsdl:output message="tns:HTNG_HotelRoomTypeUpsellRS"/>
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>
+
+
+
+

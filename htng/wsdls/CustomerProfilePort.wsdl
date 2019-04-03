@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://htng.org/2014B" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CustomerProfile" targetNamespace="http://htng.org/2014B">
+	<wsdl:import namespace="http://htng.org/2014B" location="HTNG_CommonMessages.wsdl"/>
+	<wsdl:portType name="CustomerProfile">
+		<wsdl:operation name="SearchProfile">
+			<wsdl:input message="tns:HTNG_ReadRQ"/>
+			<wsdl:output message="tns:HTNG_ProfileReadRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="ReadProfile">
+			<wsdl:input message="tns:HTNG_ReadRQ"/>
+			<wsdl:output message="tns:HTNG_ProfileReadRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="CreateProfile">
+			<wsdl:input message="tns:OTA_ProfileCreateRQ"/>
+			<wsdl:output message="tns:OTA_ProfileCreateRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="ModifyProfile">
+			<wsdl:input message="tns:OTA_ProfileModifyRQ"/>
+			<wsdl:output message="tns:OTA_ProfileModifyRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="MergeProfiles">
+			<wsdl:input message="tns:OTA_ProfileMergeRQ"/>
+			<wsdl:output message="tns:OTA_ProfileMergeRS"/>
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>
+
+
+

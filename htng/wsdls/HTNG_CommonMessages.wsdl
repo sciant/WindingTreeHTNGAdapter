@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://htng.org/2014B" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ota="http://www.opentravel.org/OTA/2003/05" name="HTNG_CommonMessages" targetNamespace="http://htng.org/2014B">
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelAvailGetRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelAvailGetRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelAvailNotifRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelAvailNotifRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelAvailRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelAvailRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelInvBlockNotifRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelInvBlockNotifRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelInvBlockRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelInvBlockRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelInvCountNotifRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelInvCountNotifRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelInvCountRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelInvCountRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelRatePlanNotifRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelRatePlanNotifRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelRatePlanRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelRatePlanRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelResNotifRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelResNotifRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelResRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelResRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelStatsNotifRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_HotelStatsNotifRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_LoyaltyAccountRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_NotifReportRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_NotifReportRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_PingRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_PingRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_ProfileReadRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_ProfileCreateRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_ProfileCreateRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_ProfileModifyRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_ProfileModifyRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_ProfileMergeRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_ProfileMergeRS.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_ReadRQ.xsd"/>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_ResRetrieveRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_AcknowledgeReceipt.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_ChargePostingRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_ChargePostingRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_CheckDisplayRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_CheckDisplayRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_DeviceCommandRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_DeviceCommandRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_DeviceStatusRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_DeviceStatusRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_DeviceEventRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_DeviceEventRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_DeviceRegistrationRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_DeviceRegistrationRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_DeviceCapabilityProfileRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_DeviceCapabilityProfileRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_DeviceSearchRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_DeviceSearchRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelCheckInNotifRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelCheckInNotifRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelCheckOutNotifRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelCheckOutNotifRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelCommissionPaymentRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelCommissionPaymentRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelFolioNotifRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelFolioNotifRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelFolioRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelFolioRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelKeyEncodeRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelKeyEncodeRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelRoomMoveNotifRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelRoomMoveNotifRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelRoomRestrictionNotifRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelRoomRestrictionNotifRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelRoomStatusSearchRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelRoomStatusSearchRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelRoomStatusUpdateNotifRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelRoomStatusUpdateNotifRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelRoomTypeUpsellRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelRoomTypeUpsellRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelStayUpdateNotifRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_HotelStayUpdateNotifRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_LoyaltyAccountCreateRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_PaymentCardProxyRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_PaymentCardProxyRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_PaymentCardRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_PaymentCardRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_PaymentCardProcessingRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_PaymentCardProcessingRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_ProfileMessageRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_ProfileMessageRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_ProfileMessageStatusNotifRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_ProfileMessageStatusNotifRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_ProfileReadRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_ReadRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_StatisticsRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_StatisticsRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_ServiceIssueCreateRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_ServiceIssueCreateRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_ServiceIssueNotifRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_ServiceIssueNotifRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_ServiceIssueReadRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_ServiceIssueReadRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_SubscriptionsAvailableRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_SubscriptionsAvailableRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_SubscriptionStatusRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_SubscriptionStatusRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_SystemStatusNotifRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_SystemStatusNotifRS.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_WakeupSchedulingNotifRQ.xsd"/>
+      <xs:import namespace="http://htng.org/2014B" schemaLocation="../messages/HTNG_WakeupSchedulingNotifRS.xsd"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="OTA_HotelAvailGetRQ">
+    <wsdl:part name="OTA_HotelAvailGetRQ" element="ota:OTA_HotelAvailGetRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelAvailGetRS">
+    <wsdl:part name="OTA_HotelAvailGetRS" element="ota:OTA_HotelAvailGetRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelAvailNotifRQ">
+    <wsdl:part name="OTA_HotelAvailNotifRQ" element="ota:OTA_HotelAvailNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelAvailNotifRS">
+    <wsdl:part name="OTA_HotelAvailNotifRS" element="ota:OTA_HotelAvailNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelAvailRQ">
+    <wsdl:part name="OTA_HotelAvailRQ" element="ota:OTA_HotelAvailRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelAvailRS">
+    <wsdl:part name="OTA_HotelAvailRS" element="ota:OTA_HotelAvailRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelInvBlockNotifRQ">
+    <wsdl:part name="OTA_HotelInvBlockNotifRQ" element="ota:OTA_HotelInvBlockNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelInvBlockNotifRS">
+    <wsdl:part name="OTA_HotelInvBlockNotifRS" element="ota:OTA_HotelInvBlockNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelInvBlockRQ">
+    <wsdl:part name="OTA_HotelInvBlockRQ" element="ota:OTA_HotelInvBlockRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelInvBlockRS">
+    <wsdl:part name="OTA_HotelInvBlockRS" element="ota:OTA_HotelInvBlockRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelInvCountNotifRQ">
+    <wsdl:part name="OTA_HotelInvCountNotifRQ" element="ota:OTA_HotelInvCountNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelInvCountNotifRS">
+    <wsdl:part name="OTA_HotelInvCountNotifRS" element="ota:OTA_HotelInvCountNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelInvCountRQ">
+    <wsdl:part name="OTA_HotelInvCountRQ" element="ota:OTA_HotelInvCountRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelInvCountRS">
+    <wsdl:part name="OTA_HotelInvCountRS" element="ota:OTA_HotelInvCountRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelRatePlanNotifRQ">
+    <wsdl:part name="OTA_HotelRatePlanNotifRQ" element="ota:OTA_HotelRatePlanNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelRatePlanNotifRS">
+    <wsdl:part name="OTA_HotelRatePlanNotifRS" element="ota:OTA_HotelRatePlanNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelRatePlanRQ">
+    <wsdl:part name="OTA_HotelRatePlanRQ" element="ota:OTA_HotelRatePlanRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelRatePlanRS">
+    <wsdl:part name="OTA_HotelRatePlanRS" element="ota:OTA_HotelRatePlanRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelResNotifRQ">
+    <wsdl:part name="OTA_HotelResNotifRQ" element="ota:OTA_HotelResNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelResNotifRS">
+    <wsdl:part name="OTA_HotelResNotifRS" element="ota:OTA_HotelResNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelResRQ">
+    <wsdl:part name="OTA_HotelResRQ" element="ota:OTA_HotelResRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelResRS">
+    <wsdl:part name="OTA_HotelResRS" element="ota:OTA_HotelResRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_NotifReportRQ">
+    <wsdl:part name="OTA_NotifReportRQ" element="ota:OTA_NotifReportRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_NotifReportRS">
+    <wsdl:part name="OTA_NotifReportRS" element="ota:OTA_NotifReportRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelStatsNotifRQ">
+    <wsdl:part name="OTA_HotelStatsNotifRQ" element="ota:OTA_HotelStatsNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelStatsNotifRS">
+    <wsdl:part name="OTA_HotelStatsNotifRS" element="ota:OTA_HotelStatsNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_LoyaltyAccountRS">
+    <wsdl:part name="OTA_LoyaltyAccountRS" element="ota:OTA_LoyaltyAccountRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_PingRQ">
+    <wsdl:part name="OTA_PingRQ" element="ota:OTA_PingRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_PingRS">
+    <wsdl:part name="OTA_PingRS" element="ota:OTA_PingRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_ProfileReadRS">
+    <wsdl:part name="OTA_ProfileReadRS" element="ota:OTA_ProfileReadRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_ProfileCreateRQ">
+    <wsdl:part name="OTA_ProfileCreateRQ" element="ota:OTA_ProfileCreateRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_ProfileCreateRS">
+    <wsdl:part name="OTA_ProfileCreateRS" element="ota:OTA_ProfileCreateRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_ProfileModifyRQ">
+    <wsdl:part name="OTA_ProfileModifyRQ" element="ota:OTA_ProfileModifyRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_ProfileModifyRS">
+    <wsdl:part name="OTA_ProfileModifyRS" element="ota:OTA_ProfileModifyRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_ProfileMergeRQ">
+    <wsdl:part name="OTA_ProfileMergeRQ" element="ota:OTA_ProfileMergeRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_ProfileMergeRS">
+    <wsdl:part name="OTA_ProfileMergeRS" element="ota:OTA_ProfileMergeRS"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_ReadRQ">
+    <wsdl:part name="OTA_ReadRQ" element="ota:OTA_ReadRQ"/>
+  </wsdl:message>
+  <wsdl:message name="OTA_ResRetrieveRS">
+    <wsdl:part name="OTA_ResRetrieveRS" element="ota:OTA_ResRetrieveRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_AcknowledgeReceipt">
+    <wsdl:part name="HTNG_AcknowledgeReceipt" element="tns:HTNG_AcknowledgeReceipt"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_ChargePostingRQ">
+    <wsdl:part name="HTNG_ChargePostingRQ" element="tns:HTNG_ChargePostingRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_ChargePostingRS">
+    <wsdl:part name="HTNG_ChargePostingRS" element="tns:HTNG_ChargePostingRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_CheckDisplayRQ">
+    <wsdl:part name="HTNG_CheckDisplayRQ" element="tns:HTNG_CheckDisplayRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_CheckDisplayRS">
+    <wsdl:part name="HTNG_CheckDisplayRS" element="tns:HTNG_CheckDisplayRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_DeviceCommandRQ">
+    <wsdl:part name="HTNG_DeviceCommandRQ" element="tns:HTNG_DeviceCommandRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_DeviceCommandRS">
+    <wsdl:part name="HTNG_DeviceCommandRS" element="tns:HTNG_DeviceCommandRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_DeviceStatusRQ">
+    <wsdl:part name="HTNG_DeviceStatusRQ" element="tns:HTNG_DeviceStatusRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_DeviceStatusRS">
+    <wsdl:part name="HTNG_DeviceStatusRS" element="tns:HTNG_DeviceStatusRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_DeviceEventRQ">
+    <wsdl:part name="HTNG_DeviceEventRQ" element="tns:HTNG_DeviceEventRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_DeviceEventRS">
+    <wsdl:part name="HTNG_DeviceEventRS" element="tns:HTNG_DeviceEventRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_DeviceRegistrationRQ">
+    <wsdl:part name="HTNG_DeviceRegistrationRQ" element="tns:HTNG_DeviceRegistrationRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_DeviceRegistrationRS">
+    <wsdl:part name="HTNG_DeviceRegistrationRS" element="tns:HTNG_DeviceRegistrationRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_DeviceCapabilityProfileRQ">
+    <wsdl:part name="HTNG_DeviceCapabilityProfileRQ" element="tns:HTNG_DeviceCapabilityProfileRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_DeviceCapabilityProfileRS">
+    <wsdl:part name="HTNG_DeviceCapabilityProfileRS" element="tns:HTNG_DeviceCapabilityProfileRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_DeviceSearchRQ">
+    <wsdl:part name="HTNG_DeviceSearchRQ" element="tns:HTNG_DeviceSearchRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_DeviceSearchRS">
+    <wsdl:part name="HTNG_DeviceSearchRS" element="tns:HTNG_DeviceSearchRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelCheckInNotifRQ">
+    <wsdl:part name="HTNG_HotelCheckInNotifRQ" element="tns:HTNG_HotelCheckInNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelCheckInNotifRS">
+    <wsdl:part name="HTNG_HotelCheckInNotifRS" element="tns:HTNG_HotelCheckInNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelCheckOutNotifRQ">
+    <wsdl:part name="HTNG_HotelCheckOutNotifRQ" element="tns:HTNG_HotelCheckOutNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelCheckOutNotifRS">
+    <wsdl:part name="HTNG_HotelCheckOutNotifRS" element="tns:HTNG_HotelCheckOutNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelCommissionPaymentRQ">
+    <wsdl:part name="HTNG_HotelCommissionPaymentRQ" element="tns:HTNG_HotelCommissionPaymentRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelCommissionPaymentRS">
+    <wsdl:part name="HTNG_HotelCommissionPaymentRS" element="tns:HTNG_HotelCommissionPaymentRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelFolioNotifRQ">
+    <wsdl:part name="HTNG_HotelFolioNotifRQ" element="tns:HTNG_HotelFolioNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelFolioNotifRS">
+    <wsdl:part name="HTNG_HotelFolioNotifRS" element="tns:HTNG_HotelFolioNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelFolioRQ">
+    <wsdl:part name="HTNG_HotelFolioRQ" element="tns:HTNG_HotelFolioRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelFolioRS">
+    <wsdl:part name="HTNG_HotelFolioRS" element="tns:HTNG_HotelFolioRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelKeyEncodeRQ">
+    <wsdl:part name="HTNG_HotelKeyEncodeRQ" element="tns:HTNG_HotelKeyEncodeRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelKeyEncodeRS">
+    <wsdl:part name="HTNG_HotelKeyEncodeRS" element="tns:HTNG_HotelKeyEncodeRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelRoomMoveNotifRQ">
+    <wsdl:part name="HTNG_HotelRoomMoveNotifRQ" element="tns:HTNG_HotelRoomMoveNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelRoomMoveNotifRS">
+    <wsdl:part name="HTNG_HotelRoomMoveNotifRS" element="tns:HTNG_HotelRoomMoveNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelRoomRestrictionNotifRQ">
+    <wsdl:part name="HTNG_HotelRoomRestrictionNotifRQ" element="tns:HTNG_HotelRoomRestrictionNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelRoomRestrictionNotifRS">
+    <wsdl:part name="HTNG_HotelRoomRestrictionNotifRS" element="tns:HTNG_HotelRoomRestrictionNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelRoomStatusSearchRQ">
+    <wsdl:part name="HTNG_HotelRoomStatusSearchRQ" element="tns:HTNG_HotelRoomStatusSearchRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelRoomStatusSearchRS">
+    <wsdl:part name="HTNG_HotelRoomStatusSearchRS" element="tns:HTNG_HotelRoomStatusSearchRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelRoomStatusUpdateNotifRQ">
+    <wsdl:part name="HTNG_HotelRoomStatusUpdateNotifRQ" element="tns:HTNG_HotelRoomStatusUpdateNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelRoomStatusUpdateNotifRS">
+    <wsdl:part name="HTNG_HotelRoomStatusUpdateNotifRS" element="tns:HTNG_HotelRoomStatusUpdateNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelRoomTypeUpsellRQ">
+    <wsdl:part name="HTNG_HotelRoomTypeUpsellRQ" element="tns:HTNG_HotelRoomTypeUpsellRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelRoomTypeUpsellRS">
+    <wsdl:part name="HTNG_HotelRoomTypeUpsellRS" element="tns:HTNG_HotelRoomTypeUpsellRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelStayUpdateNotifRQ">
+    <wsdl:part name="HTNG_HotelStayUpdateNotifRQ" element="tns:HTNG_HotelStayUpdateNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_HotelStayUpdateNotifRS">
+    <wsdl:part name="HTNG_HotelStayUpdateNotifRS" element="tns:HTNG_HotelStayUpdateNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_LoyaltyAccountCreateRQ">
+    <wsdl:part name="HTNG_LoyaltyAccountCreateRQ" element="tns:HTNG_LoyaltyAccountCreateRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_PaymentCardRQ">
+    <wsdl:part name="HTNG_PaymentCardRQ" element="tns:HTNG_PaymentCardRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_PaymentCardRS">
+    <wsdl:part name="HTNG_PaymentCardRS" element="tns:HTNG_PaymentCardRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_PaymentCardProxyRQ">
+    <wsdl:part name="HTNG_PaymentCardProxyRQ" element="tns:HTNG_PaymentCardProxyRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_PaymentCardProxyRS">
+    <wsdl:part name="HTNG_PaymentCardProxyRS" element="tns:HTNG_PaymentCardProxyRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_PaymentCardProcessingRQ">
+    <wsdl:part name="HTNG_PaymentCardProcessingRQ" element="tns:HTNG_PaymentCardProcessingRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_PaymentCardProcessingRS">
+    <wsdl:part name="HTNG_PaymentCardProcessingRS" element="tns:HTNG_PaymentCardProcessingRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_ProfileMessageRQ">
+    <wsdl:part name="HTNG_ProfileMessageRQ" element="tns:HTNG_ProfileMessageRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_ProfileMessageRS">
+    <wsdl:part name="HTNG_ProfileMessageRS" element="tns:HTNG_ProfileMessageRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_ProfileMessageStatusRQ">
+    <wsdl:part name="HTNG_ProfileMessageStatusRQ" element="tns:HTNG_ProfileMessageStatusNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_ProfileMessageStatusRS">
+    <wsdl:part name="HTNG_ProfileMessageStatusRS" element="tns:HTNG_ProfileMessageStatusNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_ProfileReadRS">
+    <wsdl:part name="HTNG_ProfileReadRS" element="tns:HTNG_ProfileReadRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_ReadRQ">
+    <wsdl:part name="HTNG_ReadRQ" element="tns:HTNG_ReadRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_StatisticsRQ">
+    <wsdl:part name="HTNG_StatisticsRQ" element="tns:HTNG_StatisticsRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_StatisticsRS">
+    <wsdl:part name="HTNG_StatisticsRS" element="tns:HTNG_StatisticsRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_ServiceIssueCreateRQ">
+    <wsdl:part name="HTNG_ServiceIssueCreateRQ" element="tns:HTNG_ServiceIssueCreateRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_ServiceIssueCreateRS">
+    <wsdl:part name="HTNG_ServiceIssueCreateRS" element="tns:HTNG_ServiceIssueCreateRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_ServiceIssueNotifRQ">
+    <wsdl:part name="HTNG_ServiceIssueNotifRQ" element="tns:HTNG_ServiceIssueNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_ServiceIssueNotifRS">
+    <wsdl:part name="HTNG_ServiceIssueNotifRS" element="tns:HTNG_ServiceIssueNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_ServiceIssueReadRQ">
+    <wsdl:part name="HTNG_ServiceIssueReadRQ" element="tns:HTNG_ServiceIssueReadRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_ServiceIssueReadRS">
+    <wsdl:part name="HTNG_ServiceIssueReadRS" element="tns:HTNG_ServiceIssueReadRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_SubscriptionsAvailableRQ">
+    <wsdl:part name="HTNG_SubscriptionsAvailableRQ" element="tns:HTNG_SubscriptionsAvailableRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_SubscriptionsAvailableRS">
+    <wsdl:part name="HTNG_SubscriptionsAvailableRS" element="tns:HTNG_SubscriptionsAvailableRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_SubscriptionStatusRQ">
+    <wsdl:part name="HTNG_SubscriptionStatusRQ" element="tns:HTNG_SubscriptionStatusRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_SubscriptionStatusRS">
+    <wsdl:part name="HTNG_SubscriptionStatusRS" element="tns:HTNG_SubscriptionStatusRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_SystemStatusNotifRQ">
+    <wsdl:part name="HTNG_SystemStatusNotifRQ" element="tns:HTNG_SystemStatusNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_SystemStatusNotifRS">
+    <wsdl:part name="HTNG_SystemStatusNotifRS" element="tns:HTNG_SystemStatusNotifRS"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_WakeupSchedulingNotifRQ">
+    <wsdl:part name="HTNG_WakeupSchedulingNotifRQ" element="tns:HTNG_WakeupSchedulingNotifRQ"/>
+  </wsdl:message>
+  <wsdl:message name="HTNG_WakeupSchedulingNotifRS">
+    <wsdl:part name="HTNG_WakeupSchedulingNotifRS" element="tns:HTNG_WakeupSchedulingNotifRS"/>
+  </wsdl:message>
+</wsdl:definitions>

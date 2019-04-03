@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://htng.org/2014B" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsp="http://www.w3.org/ns/ws-policy" name="SecureDataBinding" targetNamespace="http://htng.org/2014B">
+	<wsdl:import namespace="http://htng.org/2014B" location="SecureDataPort.wsdl"/>
+	<wsdl:binding name="SecureDataBinding" type="tns:SecureData">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsp:PolicyReference URI="#UsernamePasswordPortBindingPolicy"/>
+		<wsdl:operation name="HTNG_PaymentCardRQ">
+			<soap:operation soapAction="http://htng.org/2009B/SecureDataService#HTNG_PaymentCardRQ" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="HTNG_PaymentCardRQ_SubmitRequest">
+			<soap:operation soapAction="http://htng.org/2009B/SecureDataService#HTNG_PaymentCardRQ_SubmitRequest" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="HTNG_PaymentCardRQ_SubmitResult">
+			<soap:operation soapAction="http://htng.org/2009B/SecureDataService#HTNG_PaymentCardRQ_SubmitResult" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="HTNG_PaymentCardProxyRQ">
+			<soap:operation soapAction="http://htng.org/2009B/SecureDataService#HTNG_PaymentCardProxyRQ" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="HTNG_PaymentCardProxyRQ_SubmitRequest">
+			<soap:operation soapAction="http://htng.org/2009B/SecureDataService#HTNG_PaymentCardProxyRQ_SubmitRequest" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="HTNG_PaymentCardProxyRQ_SubmitResult">
+			<soap:operation soapAction="http://htng.org/2009B/SecureDataService#HTNG_PaymentCardProxyRQ_SubmitResult" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>
+
+
+

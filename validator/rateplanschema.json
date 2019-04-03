@@ -1,0 +1,319 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$": {
+      "$id": "#/properties/$",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "TimeStamp": {
+          "$id": "#/properties/$/properties/TimeStamp",
+          "type": "string"
+        },
+        "EchoToken": {
+          "$id": "#/properties/$/properties/EchoToken",
+          "type": "string"
+        },
+        "Target": {
+          "$id": "#/properties/$/properties/Target",
+          "type": "string"
+        },
+        "Version": {
+          "$id": "#/properties/$/properties/Version",
+          "type": "string"
+        },
+        "MessageContentCode": {
+          "$id": "#/properties/$/properties/MessageContentCode",
+          "type": "string"
+        }
+      }
+    },      
+    "POS": {
+      "$id": "#/properties/POS",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Source": {
+          "$id": "#/properties/POS/properties/Source",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "RequestorID": {
+              "$id": "#/properties/POS/properties/Source/properties/RequestorID",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "$": {
+                  "$id": "#/properties/POS/properties/Source/properties/RequestorID/properties/$",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "Type": {
+                      "$id": "#/properties/POS/properties/Source/properties/RequestorID/properties/$/properties/Type",
+                      "type": "string"
+                    },
+                    "ID": {
+                      "$id": "#/properties/POS/properties/Source/properties/RequestorID/properties/$/properties/ID",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "RatePlans": {
+      "$id": "#/properties/RatePlans",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "$": {
+          "$id": "#/properties/RatePlans/properties/$",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "HotelCode": {
+              "$id": "#/properties/RatePlans/properties/$/properties/HotelCode",
+              "type": "string"
+            }
+          }
+        },
+        "RatePlan": {
+          "$id": "#/properties/RatePlans/properties/RatePlan",
+          
+          "items": {
+            "$id": "#/properties/RatePlans/properties/RatePlan/items",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "$": {
+                "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/$",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "RatePlanCode": {
+                    "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/$/properties/RatePlanCode",
+                    "type": "string"
+                  },
+                  "RatePlanNotifType": {
+                    "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/$/properties/RatePlanNotifType",
+                    "type": "string"
+                  },
+                  "MarketCode": {
+                    "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/$/properties/MarketCode",
+                    "type": "string"
+                  },
+                  "Start": {
+                    "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/$/properties/Start",
+                    "type": "string"
+                  },
+                  "End": {
+                    "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/$/properties/End",
+                    "type": "string"
+                  },
+                  "RatePlanStatusType": {
+                    "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/$/properties/RatePlanStatusType",
+                    "type": "string"
+                  }
+                }
+              },
+              "Rates": {
+                "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "Rate": {
+                    "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate",
+                    "items": {
+                      "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "$": {
+                          "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/$",
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "Start": {
+                              "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/$/properties/Start",
+                              "type": "string"
+                            },
+                            "End": {
+                              "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/$/properties/End",
+                              "type": "string"
+                            },
+                            "CurrencyCode": {
+                              "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/$/properties/CurrencyCode",
+                              "type": "string"
+                            },
+                            "InvTypeCode": {
+                              "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/$/properties/InvTypeCode",
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "BaseByGuestAmts": {
+                          "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/BaseByGuestAmts",
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "BaseByGuestAmt": {
+                              "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/BaseByGuestAmts/properties/BaseByGuestAmt",
+                              
+                              "items": {
+                                "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/BaseByGuestAmts/properties/BaseByGuestAmt/items",
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                  "$": {
+                                    "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/BaseByGuestAmts/properties/BaseByGuestAmt/items/properties/$",
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                      "NumberOfGuests": {
+                                        "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/BaseByGuestAmts/properties/BaseByGuestAmt/items/properties/$/properties/NumberOfGuests",
+                                        "type": "string"
+                                      },
+                                      "AgeQualifyingCode": {
+                                        "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/BaseByGuestAmts/properties/BaseByGuestAmt/items/properties/$/properties/AgeQualifyingCode",
+                                        "type": "string"
+                                      },
+                                      "AmountBeforeTax": {
+                                        "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/BaseByGuestAmts/properties/BaseByGuestAmt/items/properties/$/properties/AmountBeforeTax",
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "AdditionalGuestAmounts": {
+                          "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/AdditionalGuestAmounts",
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "AdditionalGuestAmount": {
+                              "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/AdditionalGuestAmounts/properties/AdditionalGuestAmount",
+                              
+                              "items": {
+                                "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/AdditionalGuestAmounts/properties/AdditionalGuestAmount/items",
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                  "$": {
+                                    "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/AdditionalGuestAmounts/properties/AdditionalGuestAmount/items/properties/$",
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                      "AgeQualifyingCode": {
+                                        "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/AdditionalGuestAmounts/properties/AdditionalGuestAmount/items/properties/$/properties/AgeQualifyingCode",
+                                        "type": "string"
+                                      },
+                                      "Amount": {
+                                        "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Rates/properties/Rate/items/properties/AdditionalGuestAmounts/properties/AdditionalGuestAmount/items/properties/$/properties/Amount",
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "BookingRules": {
+                "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/BookingRules",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "BookingRule": {
+                    "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/BookingRules/properties/BookingRule",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "LengthsOfStay": {
+                        "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/BookingRules/properties/BookingRule/properties/LengthsOfStay",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "LengthOfStay": {
+                            "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/BookingRules/properties/BookingRule/properties/LengthsOfStay/properties/LengthOfStay",
+                            
+                            "items": {
+                              "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/BookingRules/properties/BookingRule/properties/LengthsOfStay/properties/LengthOfStay/items",
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "$": {
+                                  "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/BookingRules/properties/BookingRule/properties/LengthsOfStay/properties/LengthOfStay/items/properties/$",
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "MinMaxMessageType": {
+                                      "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/BookingRules/properties/BookingRule/properties/LengthsOfStay/properties/LengthOfStay/items/properties/$/properties/MinMaxMessageType",
+                                      "type": "string"
+                                    },
+                                    "Time": {
+                                      "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/BookingRules/properties/BookingRule/properties/LengthsOfStay/properties/LengthOfStay/items/properties/$/properties/Time",
+                                      "type": "string"
+                                    },
+                                    "TimeUnit": {
+                                      "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/BookingRules/properties/BookingRule/properties/LengthsOfStay/properties/LengthOfStay/items/properties/$/properties/TimeUnit",
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "Description": {
+                "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Description",
+                
+                "items": {
+                  "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Description/items",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "$": {
+                      "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Description/items/properties/$",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "Name": {
+                          "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Description/items/properties/$/properties/Name",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "Text": {
+                      "$id": "#/properties/RatePlans/properties/RatePlan/items/properties/Description/items/properties/Text",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

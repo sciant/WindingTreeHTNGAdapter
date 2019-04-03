@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://htng.org/2014B" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ReservationManagement" targetNamespace="http://htng.org/2014B">
+	<wsdl:import namespace="http://htng.org/2014B" location="HTNG_CommonMessages.wsdl"/>
+	<wsdl:portType name="ReservationManagement">
+		<!-- Deprecation warning.  The ReservationManagement portType will be disappearing -->
+		<wsdl:operation name="RetrieveReservations">
+			<wsdl:input message="tns:OTA_ReadRQ"/>
+			<wsdl:output message="tns:OTA_ResRetrieveRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="ModifyReservation">
+			<wsdl:input message="tns:OTA_HotelResNotifRQ"/>
+			<wsdl:output message="tns:OTA_HotelResNotifRS"/>
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>
+
+
+
+

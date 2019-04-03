@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://htng.org/2014B" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SystemReadinessService" targetNamespace="http://htng.org/2014B">
+	<wsdl:import namespace="http://htng.org/2014B" location="wsdls/SystemReadinessBinding.wsdl"/>
+	<wsdl:service name="SystemReadinessService">
+		<wsdl:port name="SystemReadiness" binding="tns:SystemReadinessBinding">
+			<soap:address location="http://tempuri.org"/>
+			<!-- UPDATE LOCATION ATTRIBUTE TO YOUR LOCAL SERVICE LOCATION-->
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
+
+
+

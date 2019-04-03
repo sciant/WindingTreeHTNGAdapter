@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.002" id="HTNG2014B">
+	<xs:include schemaLocation="../schemas/HTNG_CommonTypes.xsd"/>
+	<xs:include schemaLocation="../schemas/HTNG_SimpleTypes.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_CommonTypes.xsd"/>
+	<xs:annotation>
+		<xs:documentation xml:lang="en">This message is used to create, modify, or delete a wakeup call.  The receiver is obligated to fulfill this request.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="HTNG_WakeupSchedulingNotifRQ">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="HTNG_RequestBaseType">
+					<xs:sequence>
+						<xs:element name="RoomInformationList">
+							<xs:annotation>
+								<xs:documentation>A collection of wakeup events to be processed.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="WakeupID" type="ota:UniqueID_Type" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">The unique identifier element allows the trading partners to uniquely identify each wakeup event.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Room" type="HTNG_ComponentRoomType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Used to convey information about a single room or a suite comprised of room components.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="WakeupInfo">
+										<xs:complexType>
+											<xs:attribute name="WakeupTime" type="xs:dateTime">
+												<xs:annotation>
+													<xs:documentation>The date/time the wakeup is to take place.  If TotalDays is greater than one, the first instance of the wakeup will take place on the date portion of this value and subsequent wakeups will take place using the time portion of this value.</xs:documentation>
+												</xs:annotation>
+											</xs:attribute>
+											<xs:attribute name="TotalDays" type="xs:int" default="1">
+												<xs:annotation>
+													<xs:documentation>The number of days this wakeup should be active for.</xs:documentation>
+												</xs:annotation>
+											</xs:attribute>
+											<xs:attribute name="Action" type="ota:ActionType">
+												<xs:annotation>
+													<xs:documentation>Indicates the CRUD operation for this wakeup. See: ActionType in the OpenTravel specification.</xs:documentation>
+												</xs:annotation>
+											</xs:attribute>
+										</xs:complexType>
+									</xs:element>
+									<xs:element ref="ota:TPA_Extensions" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>This is used to exchange custom/implementation-specific values that are agreed upon between trading partners.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+
+
+
+

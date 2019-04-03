@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.001" id="HTNG2014B">
+	<xs:include schemaLocation="../schemas/HTNG_CommonTypes.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_CommonTypes.xsd"/>
+	<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_LoyaltyCommonTypes.xsd"/>
+	<xs:annotation>
+		<xs:documentation>message alerts subscribing systems of the arrival of new guest(s) that will be occupying a room.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="HTNG_LoyaltyAccountCreateRQ">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="HTNG_RequestBaseType">
+					<xs:sequence>
+						<xs:element name="AccountInfo">
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="ota:AccountInfoType">
+										<xs:sequence>
+											<xs:element name="CustLoyalty" minOccurs="0" maxOccurs="1">
+												<xs:complexType>
+													<xs:attributeGroup ref="ota:CustomerLoyaltyGroup"/>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:extension>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Location" type="ota:LocationType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">The location code where the enrollment originated.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+
+
+

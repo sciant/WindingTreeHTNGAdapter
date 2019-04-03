@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://htng.org/2014B" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RoomRestrictionNotification" targetNamespace="http://htng.org/2014B">
+	<wsdl:import namespace="http://htng.org/2014B" location="HTNG_CommonMessages.wsdl"/>
+	<wsdl:portType name="RoomRestrictionNotification">
+		<wsdl:operation name="RoomRestricted">
+			<wsdl:input message="tns:HTNG_HotelRoomRestrictionNotifRQ"/>
+			<wsdl:output message="tns:HTNG_HotelRoomRestrictionNotifRS"/>
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>
+
+
+
+

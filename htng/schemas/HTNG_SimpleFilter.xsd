@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.htng.org/htngSimpleFilter"
+  xmlns="http://www.htng.org/htngSimpleFilter"
+  elementFormDefault="qualified">
+
+  <!-- defines a type for the name element with two attributes rule and type -->
+  <xsd:complexType name="NameType">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute
+          name="rule"
+          type="xsd:string" />
+        <xsd:attribute
+          name="type"
+          type="xsd:string" />
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <!-- defines a type for match elements. A match element may have either
+    a name-value pair or a list of match elements -->
+  <xsd:complexType name="MatchType">
+    <xsd:choice>
+      <xsd:sequence>
+        <xsd:element
+          name="name"
+          type="NameType" />
+        <xsd:element
+          name="value"
+          type="xsd:string" />
+      </xsd:sequence>
+      <xsd:sequence>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element
+            name="matchAny"
+            type="MatchType" />
+          <xsd:element
+            name="matchAll"
+            type="MatchType" />
+          <xsd:element
+            name="matchOne"
+            type="MatchType" />
+          <xsd:element
+            name="matchNone"
+            type="MatchType" />
+        </xsd:choice>
+      </xsd:sequence>
+    </xsd:choice>
+  </xsd:complexType>
+
+  <!-- An HTNG_SimpleFilter must have a single element of any matchType element -->
+  <xsd:complexType name="HTNG_SimpleFilterType">
+    <xsd:choice>
+      <xsd:element
+        name="matchAny"
+        type="MatchType" />
+      <xsd:element
+        name="matchAll"
+        type="MatchType" />
+      <xsd:element
+        name="matchOne"
+        type="MatchType" />
+      <xsd:element
+        name="matchNone"
+        type="MatchType" />
+    </xsd:choice>
+  </xsd:complexType>
+
+  <xsd:element
+    name="HTNG_SimpleFilter"
+    type="HTNG_SimpleFilterType" />
+
+</xsd:schema>

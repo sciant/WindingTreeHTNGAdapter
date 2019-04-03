@@ -1,0 +1,4 @@
+{
+    "WRITE_API" : "http://localhost:8000/",
+    "READ_API": "http://localhost:3000/"
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by Doug Rice (HTNG) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" version="1.002" id="HTNG2014B">
+  <xs:annotation>
+    <xs:documentation xml:lang="en"/>
+  </xs:annotation>
+  <xs:element name="HTNG_SubscriptionsAvailableRS">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AvailableSubscriptions">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Provides the Event Types that a system offers as possible subscriptions</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TypeOfEvent" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="MessageDef" type="xs:string"/>
+                    <xs:element name="SendSubscribeTo" type="xs:string"/>
+                    <xs:element name="Description" type="xs:string" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Brief description of the Event Type. More detail should be available from the various message specifications within other workgroups</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="FilterDialects" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence maxOccurs="unbounded">
+                          <xs:element name="FilterDialect" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="EventID" type="xs:string"/>
+                  <xs:attribute name="VendorVersionID" type="xs:string"/>
+                  <xs:attribute name="VendorID" type="xs:string"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

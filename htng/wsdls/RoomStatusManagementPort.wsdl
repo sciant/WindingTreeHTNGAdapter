@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://htng.org/2014B" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RoomStatusManagement" targetNamespace="http://htng.org/2014B">
+	<wsdl:import namespace="http://htng.org/2014B" location="HTNG_CommonMessages.wsdl"/>
+	<wsdl:portType name="RoomStatusManagement">
+		<wsdl:operation name="SearchRooms">
+			<wsdl:input message="tns:HTNG_HotelRoomStatusSearchRQ"/>
+			<wsdl:output message="tns:HTNG_HotelRoomStatusSearchRS"/>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateRoomStatus">
+			<wsdl:input message="tns:HTNG_HotelRoomStatusUpdateNotifRQ"/>
+			<wsdl:output message="tns:HTNG_HotelRoomStatusUpdateNotifRS"/>
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>
+
+
+
+

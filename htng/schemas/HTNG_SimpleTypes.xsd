@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://htng.org/2014B" xmlns:ota="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://htng.org/2014B" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.002" id="HTNG2014B">
+  <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="../opentravel/OTA_SimpleTypes.xsd"/>
+  <xs:simpleType name="HTNG_DeviceActionTypeType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"/>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COMMAND"/>
+      <xs:enumeration value="STATUS"/>
+      <xs:enumeration value="EVENT"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HTNG_ComparisonOperatorType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"/>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Equals"/>
+      <xs:enumeration value="Does Not Equal"/>
+      <xs:enumeration value="Contains"/>
+      <xs:enumeration value="Does Not Contain"/>
+      <xs:enumeration value="Begins With"/>
+      <xs:enumeration value="Does Not Begin With"/>
+      <xs:enumeration value="Ends With"/>
+      <xs:enumeration value="Does Not End With"/>
+      <xs:enumeration value="Contains Data"/>
+      <xs:enumeration value="Does Not Contain Data"/>
+      <xs:enumeration value="Is Greater Than"/>
+      <xs:enumeration value="Is Greater Than or Equal To"/>
+      <xs:enumeration value="Is Less Than"/>
+      <xs:enumeration value="Is Less Than or Equal To"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HTNG_DeviceMessageType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"/>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="STATUS"/>
+      <xs:enumeration value="COMMAND"/>
+      <xs:enumeration value="EVENT"/>
+      <xs:enumeration value="VENDOR_SPECIFIC"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HTNG_DeviceIDType">
+    <xs:restriction base="ota:StringLength1to16"/>
+  </xs:simpleType>
+  <xs:simpleType name="HTNG_EventFilterType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"/>
+    </xs:annotation>
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="Applied">
+        <xs:annotation>
+          <xs:documentation xml:lang="en"/>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Available">
+        <xs:annotation>
+          <xs:documentation xml:lang="en"/>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Requested">
+        <xs:annotation>
+          <xs:documentation xml:lang="en"/>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HTNG_PostingType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"/>
+    </xs:annotation>
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="LoyaltyAuthorization">
+        <xs:annotation>
+          <xs:documentation xml:lang="en"/>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LoyaltyRedemption">
+        <xs:annotation>
+          <xs:documentation xml:lang="en"/>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HTNG_ProfileMessageStatusType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Used to indicate the status of a message attahed to a Profile</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="New"/>
+      <xs:enumeration value="Viewed"/>
+      <xs:enumeration value="Deleted"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HTNG_QueryResultListType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Used to indicate if an amount is inclusive or exclusive of other charges, such as taxes, or is cumulative (amounts have been added to each other).
+		</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="All Ascending"/>
+      <xs:enumeration value="All Descending"/>
+      <xs:enumeration value="Top Ascending"/>
+      <xs:enumeration value="Top Descending"/>
+      <xs:enumeration value="Bytes"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HTNG_RequestedComponentEnumerationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"/>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Name"/>
+      <xs:enumeration value="RelatedTraveler"/>
+      <xs:enumeration value="Telephone"/>
+      <xs:enumeration value="Communication"/>
+      <xs:enumeration value="Email"/>
+      <xs:enumeration value="Address"/>
+      <xs:enumeration value="Document"/>
+      <xs:enumeration value="Comment"/>
+      <xs:enumeration value="Preference"/>
+      <xs:enumeration value="PaymentCard"/>
+      <xs:enumeration value="Voucher"/>
+      <xs:enumeration value="CustLoyalty"/>
+      <xs:enumeration value="ContactPerson"/>
+      <xs:enumeration value="SocialMedia"/>
+      <xs:enumeration value="Promotions"/>
+      <xs:enumeration value="Extension"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HTNG_ResultFormatType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Used to indicate if an amount is inclusive or exclusive of other charges, such as taxes, or is cumulative (amounts have been added to each other).
+		</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="XML"/>
+      <xs:enumeration value="CSV"/>
+      <xs:enumeration value="PlainText"/>
+      <xs:enumeration value="Base64Binary"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HTNG_HousekeepingStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NEEDS_INSPECTION"/>
+      <xs:enumeration value="OCCUPIED_CLEAN"/>
+      <xs:enumeration value="OCCUPIED_DIRTY"/>
+      <xs:enumeration value="OFF_MARKET"/>
+      <xs:enumeration value="OUT_OF_ORDER"/>
+      <xs:enumeration value="PICKUP"/>
+      <xs:enumeration value="VACANT_CLEAN"/>
+      <xs:enumeration value="VACANT_DIRTY"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HTNG_SimpleEncryptedType">
+    <xs:restriction base="xs:base64Binary"/>
+  </xs:simpleType>
+</xs:schema>

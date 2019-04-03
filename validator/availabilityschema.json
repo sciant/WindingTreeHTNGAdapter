@@ -1,0 +1,251 @@
+{
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/root.json",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "$": {
+        "$id": "#/properties/$",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "TimeStamp": {
+            "$id": "#/properties/$/properties/TimeStamp",
+            "type": "string"
+          },
+          "EchoToken": {
+            "$id": "#/properties/$/properties/EchoToken",
+            "type": "string"
+          },
+          "Target": {
+            "$id": "#/properties/$/properties/Target",
+            "type": "string"
+          },
+          "Version": {
+            "$id": "#/properties/$/properties/Version",
+            "type": "string"
+          },
+          "TransactionIdentifier": {
+            "$id": "#/properties/$/properties/TransactionIdentifier",
+            "type": "string"
+          },
+          "MessageContentCode": {
+            "$id": "#/properties/$/properties/MessageContentCode",
+            "type": "string"
+          }
+        }
+      },
+      "POS": {
+        "$id": "#/properties/POS",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Source": {
+            "$id": "#/properties/POS/properties/Source",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "RequestorID": {
+                "$id": "#/properties/POS/properties/Source/properties/RequestorID",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "$": {
+                    "$id": "#/properties/POS/properties/Source/properties/RequestorID/properties/$",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "Type": {
+                        "$id": "#/properties/POS/properties/Source/properties/RequestorID/properties/$/properties/Type",
+                        "type": "string"
+                      },
+                      "ID": {
+                        "$id": "#/properties/POS/properties/Source/properties/RequestorID/properties/$/properties/ID",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "AvailStatusMessages": {
+        "$id": "#/properties/AvailStatusMessages",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "$": {
+            "$id": "#/properties/AvailStatusMessages/properties/$",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "HotelCode": {
+                "$id": "#/properties/AvailStatusMessages/properties/$/properties/HotelCode",
+                "type": "string"
+              }
+            }
+          },
+          "AvailStatusMessage": {
+            "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage",
+            "type": "array",
+            "items": {
+              "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "$": {
+                  "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/$",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "BookingLimit": {
+                      "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/$/properties/BookingLimit",
+                      "type": "string"
+                    },
+                    "BookingLimitMessageType": {
+                      "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/$/properties/BookingLimitMessageType",
+                      "type": "string"
+                    }
+                  }
+                },
+                "StatusApplicationControl": {
+                  "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/StatusApplicationControl",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "$": {
+                      "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/StatusApplicationControl/properties/$",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "Start": {
+                          "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/StatusApplicationControl/properties/$/properties/Start",
+                          "type": "string"
+                        },
+                        "End": {
+                          "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/StatusApplicationControl/properties/$/properties/End",
+                          "type": "string"
+                        },
+                        "InvTypeCode": {
+                          "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/StatusApplicationControl/properties/$/properties/InvTypeCode",
+                          "type": "string"
+                        },
+                        "Mon": {
+                          "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/StatusApplicationControl/properties/$/properties/Mon",
+                          "type": "string"
+                        },
+                        "Tue": {
+                          "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/StatusApplicationControl/properties/$/properties/Tue",
+                          "type": "string"
+                        },
+                        "Weds": {
+                          "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/StatusApplicationControl/properties/$/properties/Weds",
+                          "type": "string"
+                        },
+                        "Thur": {
+                          "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/StatusApplicationControl/properties/$/properties/Thur",
+                          "type": "string"
+                        },
+                        "Fri": {
+                          "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/StatusApplicationControl/properties/$/properties/Fri",
+                          "type": "string"
+                        },
+                        "Sat": {
+                          "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/StatusApplicationControl/properties/$/properties/Sat",
+                          "type": "string"
+                        },
+                        "Sun": {
+                          "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/StatusApplicationControl/properties/$/properties/Sun",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "LengthsOfStay": {
+                  "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/LengthsOfStay",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "LengthOfStay": {
+                      "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/LengthsOfStay/properties/LengthOfStay",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "$": {
+                          "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/LengthsOfStay/properties/LengthOfStay/properties/$",
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "MinMaxMessageType": {
+                              "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/LengthsOfStay/properties/LengthOfStay/properties/$/properties/MinMaxMessageType",
+                              "type": "string"
+                            },
+                            "Time": {
+                              "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/LengthsOfStay/properties/LengthOfStay/properties/$/properties/Time",
+                              "type": "string"
+                            },
+                            "TimeUnit": {
+                              "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/LengthsOfStay/properties/LengthOfStay/properties/$/properties/TimeUnit",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "UniqueID": {
+                  "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/UniqueID",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "$": {
+                      "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/UniqueID/properties/$",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "Type": {
+                          "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/UniqueID/properties/$/properties/Type",
+                          "type": "string"
+                        },
+                        "ID": {
+                          "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/UniqueID/properties/$/properties/ID",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "RestrictionStatus": {
+                  "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/RestrictionStatus",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "$": {
+                      "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/RestrictionStatus/properties/$",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "Restriction": {
+                          "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/RestrictionStatus/properties/$/properties/Restriction",
+                          "type": "string"
+                        },
+                        "Status": {
+                          "$id": "#/properties/AvailStatusMessages/properties/AvailStatusMessage/items/properties/RestrictionStatus/properties/$/properties/Status",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
