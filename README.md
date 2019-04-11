@@ -65,6 +65,11 @@ The service needs some configurations to run properly.
 2. Update `hotel_addresses.json` file with addressess of hotels and their codes. 
 3. Edit `/htng/services/HTNG_ARIAndReservationPushService.wsdl` and update location attribute to your local service location
 
+## Supports
+
+wt-write-api: v.0.15.1
+wt-read-api: v.0.13.4
+
 ## Other documentation
 [Developers guide](docs/developers_guide.md)
 
