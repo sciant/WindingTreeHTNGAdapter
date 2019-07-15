@@ -348,6 +348,7 @@ function insertRateInfo(rate, rate_plan) {
         );
         modifiers.push({
             adjustment: 100 * (pricePerGuest - basePrice) / basePrice,
+            unit: 'percentage', // TODO it is possible to change this to absolute in newer WT versions
             conditions: {
                 from: rate_plan.availableForTravel.from,
                 to: rate_plan.availableForTravel.to,
@@ -398,6 +399,7 @@ function insertModifiersForAdditionalGuests(additional_guest_amounts, base_price
         let oldPricePerGuest = lastAdjustment / 100 * base_price + base_price;
         let newPricePerGuest = (oldPricePerGuest * lastNOG + parseFloat(additional_guest_amounts[i].$.Amount)) / (lastNOG + 1);
         modifier.adjustment = 100 * (newPricePerGuest - base_price) / base_price;
+        modifier.unit = 'percentage'; // TODO it is possible to change this to absolute in newer WT versions
         modifier.conditions.minOccupants = lastNOG + 1;
         modifier.conditions.from = start;
         modifier.conditions.to = end;

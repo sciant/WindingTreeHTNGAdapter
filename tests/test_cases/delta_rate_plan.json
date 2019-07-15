@@ -11,6 +11,7 @@
         "modifiers":[
            {
               "adjustment":-35.483870967741936,
+              "unit": "percentage",
               "conditions":{
                  "from":"2013-07-02",
                  "minOccupants":2,
@@ -19,12 +20,14 @@
            },
            {
               "adjustment":-51.61290322580645,
+              "unit": "percentage",
               "conditions":{
                  "minOccupants":3
               }
            },
            {
               "adjustment":-53.76344086021505,
+              "unit": "percentage",
               "conditions":{
                  "maxAge":12,
                  "minOccupants":3
@@ -55,6 +58,7 @@
         "modifiers":[
            {
               "adjustment":-50,
+              "unit": "percentage",
               "conditions":{
                  "from":"2013-04-05",
                  "minOccupants":2,
@@ -63,6 +67,7 @@
            },
            {
               "adjustment":-61.11111111111111,
+              "unit": "percentage",
               "conditions":{
                  "from":"2013-04-05",
                  "minOccupants":3,
@@ -71,6 +76,7 @@
            },
            {
               "adjustment":-63.333333333333336,
+              "unit": "percentage",
               "conditions":{
                  "from":"2013-04-05",
                  "maxAge":12,
