@@ -28,7 +28,7 @@
     "jest": "^23.6.0"
   },
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "jsonschema": "^1.2.4",
     "soap": "^0.25.0"
   }
